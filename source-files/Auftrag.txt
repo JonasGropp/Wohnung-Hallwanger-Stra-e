@@ -1,0 +1,1118 @@
+# Entwicklungsauftrag: Interaktiver 3D-Wohnungsplaner
+
+## 1. Rolle und Entwicklungsziel
+
+Du bist ein erfahrener Full-Stack-Entwickler, 3D-Softwareentwickler und Spezialist für architektonische Visualisierung, Three.js und digitale Raumplanung.
+
+Entwickle eine **vollständig funktionsfähige, browserbasierte 3D-Wohnungsplanungsanwendung**, die lokal auf einem Windows-PC ausgeführt werden kann.
+
+Das Ziel ist die möglichst realitätsnahe und maßstabsgetreue Rekonstruktion einer bestehenden Wohnung einschließlich sämtlicher Möbel, vorhandener Einbauten, Bodenbeläge, Türen, Fenster und Heizkörper.
+
+Die Anwendung muss interaktiv sein. Es reicht ausdrücklich nicht aus, ein Bild, eine Videosequenz, ein Mock-up oder eine nicht funktionsfähige Benutzeroberfläche zu erzeugen.
+
+**Hauptziele:**
+
+1. Den tatsächlichen Wohnungsgrundriss möglichst maßstabsgetreu in ein dreidimensionales Modell übertragen.
+2. Die Wohnung anhand der vorhandenen Fotos realistisch nachbilden.
+3. Alle Möbel aus der bereitgestellten Word-Datei anhand ihrer Bilder und Maße als eigenständige dreidimensionale Objekte modellieren.
+4. Die Möbel entsprechend den roten Markierungen im Grundriss platzieren.
+5. Die Wohnung frei aus verschiedenen Perspektiven erkunden.
+6. Möbel interaktiv verschieben, drehen, hinzufügen und entfernen.
+7. Kollisionen zwischen Möbeln erkennen.
+8. Ansichten als PNG, den Grundriss als PDF und das 3D-Modell in einem gängigen 3D-Format exportieren.
+
+**Entscheidende Priorität:** Geometrische Korrektheit und vollständige Funktionalität haben Vorrang vor grafischen Effekten und dekorativen Details.
+
+---
+
+## 2. Verbindliche Quelldateien
+
+Dem Auftrag liegen zwei Dateien zugrunde:
+
+### Datei A: Expose.pdf
+
+Enthält:
+
+- Den Wohnungsgrundriss auf Seite 13.
+- Fotos der verschiedenen Wohnräume.
+- Informationen über Raumgrößen und Wohnfläche.
+- Die bestehende Einbauküche.
+- Die fest installierten Sanitärobjekte und Einbaumöbel.
+- Informationen zur Raumanordnung, Fenster- und Türpositionen.
+
+**Relevante Referenzseiten:**
+
+| Seite | Inhalt |
+|---|---|
+| 1 | Küche mit bestehender Einbauküche |
+| 6–7 | Wohnzimmer und Büro/Kinderzimmer |
+| 8 | Schlafzimmer mit bestehendem Kleiderschrank |
+| 9 | Balkon und Flur |
+| 10–11 | Badezimmer und Flur |
+| 13 | Grundriss der Wohnung |
+
+### Datei B: Möbel.docx
+
+Enthält:
+
+- Möbelbezeichnungen.
+- Originalmaße der Möbel.
+- Fotos der tatsächlichen Möbel.
+- Individuelle Grundrissausschnitte mit roten Positionsmarkierungen.
+- Teilweise gemeinsame Möbelgruppen wie Bett mit Nachttischen oder Sofa mit Couchtisch.
+
+Die roten Markierungen sind **Positionsangaben, keine maßstabsgetreuen Möbelgrundflächen**.
+
+Die tatsächlichen Abmessungen ergeben sich aus den jeweiligen Möbelmaßen und müssen entsprechend berücksichtigt werden.
+
+### Verbindliche Verarbeitung der Quellen
+
+1. Analysiere beide Dateien vollständig, einschließlich aller eingebetteten Bilder.
+2. Extrahiere die Grundrissgrafiken und Referenzfotos programmatisch.
+3. Erstelle ein strukturiertes Verzeichnis aller Möbel und ihrer Bilder.
+4. Identifiziere die Raumzuordnung und ungefähre Position jedes Möbels.
+5. Nutze die Bilder zur Rekonstruktion der Möbelgeometrie, Farben, Materialien und Proportionen.
+6. Unterscheide zwischen tatsächlichen baulichen Gegebenheiten und rein illustrativen Möbeln im Exposé-Grundriss.
+7. Übernimm die vorhandene Einrichtung nicht doppelt.
+8. Bewahre die Quelldateien unverändert auf.
+
+Falls die Quelldateien nicht direkt zugänglich sind, melde dies ausdrücklich und ermögliche ihren Import. Erfinde keine angeblich aus den Dateien extrahierten Informationen.
+
+---
+
+## 3. Technische Architektur
+
+Verwende bevorzugt folgenden Technologie-Stack:
+
+| Bereich | Technologie |
+|---|---|
+| Frontend | React mit TypeScript |
+| Entwicklungsumgebung | Vite |
+| 3D-Engine | Three.js |
+| React-3D-Integration | React Three Fiber |
+| 3D-Hilfsfunktionen | @react-three/drei |
+| Styling | Tailwind CSS oder vergleichbare Lösung |
+| Anwendungszustand | Zustand |
+| PDF-Export | jsPDF oder vergleichbare Bibliothek |
+| 3D-Export | Three.js GLTFExporter |
+| Lokale Speicherung | IndexedDB oder localStorage |
+| Ausführung | Node.js, npm und lokaler Browser |
+
+Die Anwendung soll über `http://localhost:5173` erreichbar sein.
+
+### Technische Anforderungen
+
+- Keine Cloud-Infrastruktur erforderlich.
+- Keine Benutzerregistrierung.
+- Keine kostenpflichtigen Dienste.
+- Kein externer API-Schlüssel.
+- Keine zwingende Internetverbindung während der lokalen Nutzung.
+- Alle erforderlichen Modelle und Texturen lokal verfügbar.
+- Unterstützung aktueller Desktopbrowser mit WebGL.
+- Optimierung für eine flüssige Bedienung auf typischer Consumer-Hardware.
+- Modulare und wartbare Architektur.
+- Verständliche Installations- und Startanleitung für Windows.
+
+Erstelle nach Möglichkeit zusätzlich eine `start.bat`, damit die Anwendung unkompliziert gestartet werden kann.
+
+---
+
+## 4. Rekonstruktion des Wohnungsgrundrisses
+
+Die Wohnung besitzt ungefähr 85 m² Wohnfläche und liegt im ersten Obergeschoss.
+
+### Raumanordnung und Flächen
+
+| Raum | Fläche laut Grundriss |
+|---|---:|
+| Küche | ca. 17,9 m² |
+| Wohnzimmer | ca. 19,9 m² |
+| Schlafzimmer | ca. 16,3 m² |
+| Büro / Kinderzimmer | ca. 13,0 m² |
+| Badezimmer | ca. 6,5 m² |
+| Flur | ca. 8,1 m² |
+| Treppenhausbereich | ca. 2,9 m² |
+| Balkon | ca. 8,8 m² |
+
+Der Balkon ist im Grundriss zusätzlich anteilig mit ca. 4,3 m² berücksichtigt. Die Flächenangaben dürfen nicht unkritisch zur Gesamtwohnfläche addiert werden.
+
+### Räumliche Anordnung
+
+Orientierung gemäß dem Exposé-Grundriss, Norden oben:
+
+- Oben links befindet sich die Küche.
+- Oben mittig befindet sich das Badezimmer.
+- Oben rechts liegt der Treppenhausbereich.
+- Mittig verläuft der Flur.
+- Unten links befindet sich das Wohnzimmer.
+- Unten mittig liegt das Schlafzimmer.
+- Unten rechts befindet sich das Büro/Kinderzimmer.
+- Entlang der unteren Gebäudeseite verläuft der Balkon.
+
+Die tatsächliche Anordnung von Wänden, Durchgängen und Türen ist aus dem Originalgrundriss zu rekonstruieren.
+
+### Vorgehensweise bei fehlenden Maßen
+
+Da keine vollständige technische Bemaßung vorhanden ist:
+
+1. Extrahiere den Originalgrundriss aus Seite 13 des Exposés.
+2. Analysiere die Wände und deren geometrische Verbindungen.
+3. Rekonstruiere die Raumkonturen als zusammenhängende Polygone.
+4. Nutze die angegebenen Raumflächen, um einen plausiblen geometrischen Maßstab zu bestimmen.
+5. Berücksichtige typische Wandstärken nur als vorläufige Annahme.
+6. Überprüfe die Proportionen anhand der Wohnungsfotos.
+7. Stelle die ermittelten Raumflächen den veröffentlichten Flächen gegenüber.
+8. Dokumentiere die Abweichungen.
+
+**Wichtig:** Die Raumflächen allein ermöglichen keine eindeutige Rekonstruktion sämtlicher Wandlängen. Behaupte daher keine messtechnisch bestätigte Genauigkeit.
+
+Baue eine optionale Kalibrierungsfunktion ein, mit der nachträglich bekannte Wandlängen eingetragen werden können. Dadurch sollen die Maße verbessert werden können, ohne die komplette Wohnung neu modellieren zu müssen.
+
+Nutze intern Meter als einheitliche Maßeinheit. Die Benutzeroberfläche soll Maße in Zentimetern beziehungsweise Metern anzeigen.
+
+---
+
+## 5. Aufbau des 3D-Wohnungsmodells
+
+### Wände
+
+- Korrekte Wandpositionen gemäß Grundriss.
+- Plausible Wandstärken.
+- Realistische Wandhöhe; solange unbekannt, vorläufig 2,50 m.
+- Weiße beziehungsweise sehr helle Wandoberflächen.
+- Korrekte Tür- und Fensteröffnungen.
+- Keine zusätzlichen Wände ohne Grundlage.
+
+Die Decke muss ausblendbar sein, damit eine dreidimensionale Draufsicht möglich ist.
+
+### Türen und Fenster
+
+Rekonstruiere anhand der Grundrisszeichnungen und Fotos:
+
+- Wohnungseingang.
+- Alle Innentüren.
+- Balkonzugänge.
+- Fenster.
+- Türöffnungsrichtungen, soweit erkennbar.
+- Fensterrahmen und Fenstersimse.
+
+Die Balkonzugänge müssen die tatsächlich vorhandenen Verbindungen zum Balkon widerspiegeln.
+
+Fehlende Detailmaße dürfen durch plausible, ausdrücklich dokumentierte Annahmen ergänzt werden.
+
+### Bodenbeläge
+
+Übernimm die erkennbaren Materialien aus den Wohnungsfotos:
+
+- Wohnzimmer: warmes, bräunliches Parkett mit charakteristischer Verlegestruktur.
+- Schlafzimmer: heller Holzfußboden.
+- Büro: heller Holzfußboden.
+- Flur: Holzoptik entsprechend den Fotos.
+- Küche: helle Fliesen.
+- Badezimmer: moderne graue Fliesen.
+- Balkon: Oberflächen entsprechend den Fotos.
+
+Die Materialien sollen realistisch, aber für WebGL ausreichend performant sein.
+
+### Beleuchtung
+
+Implementiere:
+
+- Tageslicht durch Fenster und Balkontüren.
+- Weiche Schatten.
+- Realistische Materialreaktionen.
+- Umgebungsbeleuchtung.
+- Einstellbare Tageslichtintensität.
+
+Der Schwerpunkt liegt auf einer gut erkennbaren, realistischen Raumdarstellung und nicht auf aufwendigem Raytracing.
+
+---
+
+## 6. Bestehende Einrichtung
+
+Folgende Objekte gehören zur Wohnung und müssen dauerhaft im Ausgangsmodell vorhanden sein:
+
+### Küche
+
+Rekonstruiere die bestehende Einbauküche anhand der Fotos auf Seite 1 und des Grundrisses.
+
+Berücksichtige insbesondere:
+
+- Bestehende Unter- und Oberschränke.
+- Küchenarbeitsplatten.
+- Kochfeld.
+- Spüle.
+- Backofen.
+- Geschirrspüler.
+- Kühlschrank.
+- Dunstabzugshaube.
+- Kücheninsel beziehungsweise Arbeitsflächen.
+- Farbgebung der Fronten.
+- Sichtbare Sockel und Griffe.
+
+Die Küche soll optisch möglichst genau dem tatsächlichen Zustand entsprechen.
+
+Ihre vorhandenen Einbauten sollen als feste Bestandteile des Wohnungsmodells behandelt werden.
+
+### Schlafzimmer
+
+Übernimm den vorhandenen weißen Kleiderschrank aus dem Schlafzimmerfoto.
+
+Der Schrank darf nicht mit dem zusätzlichen HAUGA-Schrank aus der Möbelübersicht verwechselt werden.
+
+Position und ungefähre Abmessungen sind anhand der verfügbaren Fotos und des Grundrisses zu rekonstruieren. Bei nicht auflösbaren Widersprüchen müssen diese im Modell gekennzeichnet werden.
+
+### Badezimmer
+
+Rekonstruiere die tatsächlich vorhandenen Sanitäreinrichtungen:
+
+- WC.
+- Waschbecken.
+- Spiegelschrank.
+- Begehbare Dusche.
+- Armaturen.
+- Fliesen.
+- Fenster.
+
+### Heizkörper
+
+Berücksichtige die auf den Wohnungsfotos erkennbaren Heizkörper und ihre Positionen.
+
+Sie gehören zur festen Einrichtung und müssen insbesondere bei der Platzierung anderer Möbel berücksichtigt werden.
+
+---
+
+## 7. Möbelinventar
+
+Alle nachfolgenden Möbel müssen als individuelle 3D-Objekte modelliert und im Ausgangszustand in der Wohnung platziert werden.
+
+### Verbindliche Maße
+
+Die angegebenen Maße stammen aus `Möbel.docx`. Die Zuordnung zu Breite, Tiefe und Höhe ist anhand der Produktart und der Referenzbilder zu normalisieren.
+
+**Sonderkorrekturen durch den Auftraggeber:**
+
+- Der Esstisch ist 72 cm hoch, nicht 125 cm.
+- Das KALLAX-Regal muss senkrecht stehen, also ungefähr 75 cm breit, 39 cm tief und 147 cm hoch.
+
+| Möbel | Stückzahl | Maße in cm | Raum |
+|---|---:|---|---|
+| HEMNES Tagesbett | 1 | 209 × 86 × 83 | Büro |
+| HEMNES Kommode | 1 | 160 × 96 × 50 | Schlafzimmer |
+| MALM Bett | 1 | 209 × 196 × 38 | Schlafzimmer |
+| HEMNES Nachttisch | 2 | 46 × 35 × 70 | Schlafzimmer |
+| BILLY / OXBERG | 2 | 80 × 41 × 202 | Wohnzimmer |
+| BESTÅ TV-Bank | 1 | 180 × 40 × 38 | Wohnzimmer |
+| Schminktisch | 1 | 110 × 75 × 45 | Schlafzimmer |
+| SKRUVBY Sideboard | 1 | 120 × 38 × 90 | Küche |
+| SKRUVBY Schrank | 1 | 90 × 70 × 38 | Küche |
+| HEMNES Ablagetisch | 1 | 157 × 74 × 40 | Flur |
+| KALLAX Regal | 1 | 75 × 39 × 147, senkrecht | Flur |
+| HAUGA Kleiderschrank | 1 | 199 × 70 × 46 | Flur |
+| Babybay Beistellbett | 1 | 88 × 79 × 46 | Schlafzimmer |
+| Esstisch | 1 | 180 × 100 × 72 | Küche |
+| Esszimmerstuhl | 6 | 94 × 46 × 50 | Küche |
+| Couchteil 1 | 1 | 110 × 180 × 70 | Wohnzimmer |
+| Couchteil 2 | 1 | 100 × 120 × 70 | Wohnzimmer |
+| Runder Couchtisch | 1 | Abmessungen nicht angegeben | Wohnzimmer |
+| YASA Desk Pro | 1 | 160 × 80, Höhe verstellbar | Büro |
+| Bosch Trockner | 1 | 60 × 86 × 65 | Küche |
+| Siemens Waschmaschine | 1 | 60 × 86 × 60 | Badezimmer |
+
+Bei Maßen, die im Quelldokument nicht in einer einheitlichen Reihenfolge angegeben wurden, müssen die tatsächlichen Raumachsen anhand des Möbeltyps ermittelt werden.
+
+Die Originalangabe muss zusätzlich als Metadatum erhalten bleiben.
+
+Unbekannte Maße, etwa die Höhe des Schreibtisches oder den Durchmesser des Couchtisches, sind als Annahmen zu kennzeichnen und später editierbar zu machen.
+
+---
+
+## 8. Exakte Möbelzuordnung anhand der Word-Datei
+
+Die roten Markierungen definieren den jeweiligen bevorzugten Aufstellungsbereich.
+
+Die gesamte Möbelgrundfläche wird erst anhand der tatsächlichen Maße berechnet.
+
+### Wohnzimmer
+
+**BILLY / OXBERG Regale**
+
+- Zwei weiße Regale nebeneinander.
+- Aufstellung an der oberen Wohnzimmerwand Richtung Küche.
+- Glasfronten gemäß Referenzbild.
+- Jedes Regal 80 cm breit, 41 cm tief und 202 cm hoch.
+
+**BESTÅ TV-Bank**
+
+- Aufstellung an der Trennwand zwischen Wohnzimmer und Schlafzimmer.
+- Ausrichtung zum Wohnzimmer.
+- Weiße Fronten.
+- Fernseher auf der TV-Bank.
+- Soundbar unterhalb des Fernsehbildschirms.
+- Fernseher mit schwarzem, ausgeschaltetem Bildschirm.
+
+**Sofa mit Couchtisch**
+
+- Sofa entsprechend dem tatsächlichen Referenzfoto rekonstruieren.
+- Zwei Sofateile bilden die fotografierte Couch mit Ottomane.
+- Platzierung im linken beziehungsweise westlichen Wohnzimmerbereich.
+- Ausrichtung gemäß der markierten Grundrissdarstellung.
+- Runder weißer Couchtisch vor der Sitzfläche.
+- Sofakissen und Decke entsprechend der Referenz.
+- Keine zusätzlichen Sofateile erfinden.
+
+Die Anordnung muss anhand der zugehörigen Grundrissmarkierung aus `Möbel.docx` interpretiert werden, nicht allein anhand der illustrativen Möblierung des ursprünglichen Exposé-Grundrisses.
+
+### Schlafzimmer
+
+**MALM Bett**
+
+- Im zentralen Bereich des Schlafzimmers.
+- Ausrichtung gemäß der roten Markierung.
+- Weiße Bettkonstruktion.
+- Matratze mit weißem Bettbezug.
+- Ohne zusätzliche dekorative Bettkissen oder lose Decken.
+- Bettrahmen und Kopfteil anhand des Referenzfotos modellieren.
+
+**Zwei HEMNES Nachttische**
+
+- Links und rechts neben dem Bett.
+- Weiße Ausführung.
+- Auf jedem Nachttisch ausschließlich eine Lampe.
+- Die Lampen sollen zur vorhandenen Referenz passen.
+
+**HEMNES Kommode**
+
+- An der oberen Schlafzimmerwand Richtung Flur.
+- Weiße Fronten.
+- Mit Wickelauflage entsprechend dem Referenzfoto.
+- Die Wickelauflage ist als eigenes, fest mit der Kommode gruppiertes Objekt modellierbar.
+
+**Schminktisch**
+
+- An der unteren Schlafzimmerwand Richtung Balkon.
+- Position gemäß roter Grundrissmarkierung.
+- Weißes Möbel.
+- Inklusive der im Referenzfoto gezeigten Grundelemente.
+
+**Babybay Beistellbett**
+
+- Direkt im Bereich des großen Bettes.
+- Position gemäß roter Markierung.
+- Weißes Beistellbett mit Gitterelementen.
+- Tatsächliche Höhe und Anschlusssituation zum großen Bett berücksichtigen.
+
+**Bestehender Kleiderschrank**
+
+- Zusätzlich beibehalten.
+- Nicht durch andere Möbel ersetzen.
+- Falls zwischen vorhandenem Kleiderschrank, Bett und Kommode Platzprobleme entstehen, Kollision anzeigen und nicht automatisch die Möbel verkleinern.
+
+### Büro / Kinderzimmer
+
+**HEMNES Tagesbett**
+
+- An der rechten beziehungsweise östlichen Wand.
+- Lage entsprechend der Markierung.
+- Weißes Tagesbett.
+- Eine einfache weiße Matratze beziehungsweise ein weißer Bettbezug.
+- Keine zusätzlichen dekorativen Objekte.
+
+**YASA Desk Pro**
+
+- Im Büro entsprechend der roten Positionsmarkierung.
+- Schreibtischplatte in Holzoptik.
+- Dunkles Tischgestell.
+- Zwei Monitore mit Monitorhalterungen.
+- Tastatur, Maus und gegebenenfalls Laptop entsprechend dem Foto.
+- Schreibtischhöhe standardmäßig ca. 74 cm, als vorläufiger editierbarer Wert.
+
+Die Lage des Schreibtisches darf nicht mit der im vorherigen Abschnitt markierten Sofaposition verwechselt werden, da die Bild- und Textabschnitte im Word-Dokument über Seitenumbrüche verlaufen.
+
+### Küche
+
+**Esstisch mit sechs Stühlen**
+
+- Im oberen linken Küchenbereich.
+- Holztisch mit weiß beziehungsweise hell gestalteten Stühlen gemäß Foto.
+- Tischfläche 180 × 100 cm.
+- Tischhöhe ausdrücklich 72 cm.
+- Der Tisch soll freistehend und nicht direkt an die Wand geschoben sein.
+- Alle sechs Stühle müssen vorhanden sein.
+- Stühle räumlich nachvollziehbar am Tisch anordnen und erforderliche Bewegungsflächen berücksichtigen.
+
+**SKRUVBY Sideboard und Schrank**
+
+- Im oberen Küchenbereich gemäß gemeinsamer Grundrissmarkierung.
+- Weiße Korpusse.
+- Holzfarbene Abdeckflächen.
+- Fronten, Griffe und Regalfächer entsprechend dem Referenzfoto.
+- Falls Sideboard und Schrank als kombinierte Möbelgruppe dargestellt werden, ihre Einzelabmessungen beibehalten.
+
+**Bosch Trockner**
+
+- In der Küche.
+- Position im oberen Bereich gemäß der zugeordneten roten Markierung.
+- Weiße Ausführung mit runder Fronttür.
+- Maße 60 × 86 × 65 cm.
+
+### Badezimmer
+
+**Siemens Waschmaschine**
+
+- Im Badezimmer.
+- Platzierung entsprechend der roten Markierung am vorgesehenen Anschlussbereich.
+- Weiße Front mit Bullauge.
+- Maße 60 × 86 × 60 cm.
+
+Waschmaschine und Trockner sollen ausdrücklich **nicht beide im Badezimmer** stehen.
+
+### Flur
+
+**HEMNES Ablagetisch**
+
+- An der Wand oberhalb des Schlafzimmers.
+- Lage gemäß Markierung.
+- Weiße Konstruktion.
+- Glasauflage und Ablageflächen entsprechend dem Foto.
+
+**KALLAX Regal**
+
+- Im rechten Flurbereich.
+- Hochkant aufgestellt.
+- Zweispaltiges Raster mit vier Fächern übereinander.
+- Ungefähr 75 cm breit und 147 cm hoch.
+- Weiße Ausführung.
+
+**HAUGA Kleiderschrank**
+
+- Im rechten Flurbereich, entsprechend der Markierung an der Außenwand.
+- Weiße Ausführung.
+- Schrankform, offene Ablage und Schubladen aus dem Foto übernehmen.
+- Der Schrank ist ein zusätzliches Möbel, nicht der vorhandene Schlafzimmerschrank.
+
+### Balkon
+
+- Rekonstruiere die Balkonfläche, Brüstung, den Bodenbelag und die Zugänge entsprechend dem Exposé.
+- Ergänze eine schlichte, plausible Balkonmöblierung als separat gekennzeichnete Planungsannahme.
+- Beispiel: kompakte Sitzgruppe mit kleinem Tisch.
+- Die Balkonmöbel sollen entfernbar und frei positionierbar sein.
+- Keine erfundenen Balkonmöbel als tatsächlich vorhandenen Bestand ausgeben.
+
+---
+
+## 9. Modellierung der Möbel
+
+### Grundsatz
+
+Jedes Möbelstück muss ein echtes räumliches 3D-Objekt besitzen.
+
+Eine bloße Bildfläche mit aufgeklebtem Möbelfoto ist nicht ausreichend.
+
+### Geometrie
+
+Modelliere soweit möglich:
+
+- Korpusse.
+- Füße.
+- Türen.
+- Schubladen.
+- Ablageböden.
+- Tischplatten.
+- Polster.
+- Lehnen.
+- Armlehnen.
+- Griffe.
+- Relevante Glasflächen.
+- Charakteristische Konstruktionselemente.
+
+Nutze dafür kombinierte geometrische Grundkörper, geeignete Materialien und bei Bedarf lokal verfügbare 3D-Assets.
+
+Bei bekannten IKEA-Möbeln soll ihre charakteristische Form anhand der Referenzbilder reproduziert werden.
+
+### Materialqualität
+
+- Weiß lackiertes Holz.
+- Holzmaserungen.
+- Glas.
+- Stoffpolster.
+- Metallgestelle.
+- Kunststoffoberflächen.
+- Realistische matte und leicht glänzende Oberflächen.
+
+Vermeide rein schematische farbige Quader, wenn die entsprechende Möbelform mit vertretbarem Aufwand tatsächlich modelliert werden kann.
+
+### Maße und Koordinaten
+
+Jedes Objekt muss folgende Informationen enthalten:
+
+- Eindeutige Objekt-ID.
+- Möbelbezeichnung.
+- Ursprüngliche Maßangabe.
+- Normalisierte Breite, Tiefe und Höhe.
+- 3D-Position.
+- Rotation.
+- Zugeordneter Raum.
+- Referenzbild.
+- Modellierungsmethode.
+- Kennzeichnung als bestehender Bestand oder zusätzliches Möbel.
+- Kennzeichnung angenommener Daten.
+
+Verwende ein konsistentes Koordinatensystem mit Metern als Modelleinheit, der Y-Achse als Höhenachse und einer festen Ausrichtung des Grundrisses.
+
+### Größenverhältnisse
+
+Alle Möbel müssen in derselben metrischen Skalierung wie die Räume stehen.
+
+**Niemals ein Möbel automatisch verkleinern oder verzerren, damit es an eine gewünschte Position passt.**
+
+---
+
+## 10. Interaktive Benutzeroberfläche
+
+Gestalte eine moderne, übersichtliche Desktop-Anwendung.
+
+### Aufbau
+
+**Linke Seitenleiste: Raum- und Möbelübersicht**
+
+- Liste aller Räume.
+- Liste der Möbel pro Raum.
+- Auswahl eines einzelnen Möbels.
+- Sichtbarkeit einzelner Möbel umschalten.
+- Möbel hinzufügen und entfernen.
+
+**Hauptbereich: 3D-Ansicht**
+
+- Möglichst große Visualisierungsfläche.
+- Flüssige Kameranavigation.
+- Direkte Auswahl von Möbeln durch Anklicken.
+- Sichtbare Auswahlmarkierung.
+- Bearbeitungswerkzeuge.
+
+**Rechte Seitenleiste: Objekteigenschaften**
+
+Beim Anklicken eines Möbels anzeigen:
+
+- Name.
+- Raum.
+- Maße.
+- Position.
+- Rotation.
+- Änderbare Positionswerte.
+- Ursprüngliche Referenz.
+- Kollisionsstatus.
+
+**Obere Werkzeugleiste**
+
+- Kameraansicht auswählen.
+- Räume isolieren.
+- Wände ein- und ausblenden.
+- Änderungen zurücksetzen.
+- Screenshot exportieren.
+- PDF exportieren.
+- 3D-Modell exportieren.
+
+Verwende deutsche Oberflächenbezeichnungen.
+
+---
+
+## 11. Kameramodi
+
+Implementiere vier Ansichtsmodi.
+
+### Modus A: 3D-Draufsicht
+
+Dies ist die Standardansicht nach dem Start.
+
+Funktionen:
+
+- Gesamte Wohnung sichtbar.
+- Frei drehbare Kamera.
+- Zoom per Mausrad.
+- Verschieben der Kamera.
+- Neigung der Perspektive.
+- Decke ausgeblendet.
+- Wahlweise ausgeblendete oder transparente Wände.
+
+### Modus B: Ego-Perspektive
+
+Der Benutzer kann die Wohnung wie bei einer virtuellen Besichtigung begehen.
+
+- Augenhöhe ungefähr 1,65 m.
+- WASD-Tasten zur Bewegung.
+- Maus zur Blickrichtung.
+- Realistische Bewegungs­geschwindigkeit.
+- Bewegung durch Türöffnungen.
+- Keine Bewegung durch geschlossene Wände.
+
+Die Steuerung muss mit einer verständlichen Schaltfläche wieder verlassen werden können.
+
+### Modus C: Einzelraumansicht
+
+Auswahl eines Raumes aus der Seitenleiste.
+
+- Kamera automatisch auf den Raum zentrieren.
+- Raum aus verschiedenen Perspektiven anzeigen.
+- Nachbarwände bei Bedarf ausblenden.
+- Möbel des ausgewählten Raumes vollständig sichtbar machen.
+
+### Modus D: 2D-Grundriss
+
+Orthografische Ansicht direkt von oben.
+
+- Raumkonturen.
+- Möbelgrundflächen.
+- Türen und Fenster.
+- Raumnamen.
+- Raumflächen.
+- Maße ausgewählter Möbel.
+
+Zwischen 2D und 3D muss jederzeit gewechselt werden können, ohne Objektpositionen zu verlieren.
+
+---
+
+## 12. Möbel interaktiv bearbeiten
+
+### Verschieben
+
+Möbel durch Anklicken und Ziehen auf dem Boden verschieben.
+
+- Bewegung auf der horizontalen Ebene.
+- Position live aktualisieren.
+- Optionales Raster in 5-cm-Schritten.
+- Präzise numerische Eingabe der Position.
+- Grundrissmarkierung bleibt lediglich Ausgangsposition.
+
+### Drehen
+
+Möbel um ihre vertikale Achse drehen.
+
+- Rotationswerkzeug.
+- Drehung in 90-Grad-Schritten.
+- Zusätzlich frei einstellbarer Winkel.
+- Direkte numerische Eingabe.
+
+### Hinzufügen und Entfernen
+
+- Möbel aus vorhandener Objektbibliothek hinzufügen.
+- Möbel aus der Planungsansicht entfernen.
+- Originalinventar muss jederzeit wiederherstellbar sein.
+- Bestehende bauliche Einbauten gegen versehentliches Entfernen schützen.
+
+### Zurücksetzen
+
+Schaltfläche: **„Originalanordnung wiederherstellen“**
+
+Damit werden sämtliche Möbeldaten und Ausgangspositionen aus der initialen Planung wiederhergestellt.
+
+Vor dem Zurücksetzen eine Bestätigung anzeigen.
+
+---
+
+## 13. Kollisionsprüfung
+
+Implementiere eine funktionierende dreidimensionale Kollisionsprüfung.
+
+### Anforderungen
+
+- Erkennung überlappender Möbelkörper.
+- Prüfung nach Positionsänderungen.
+- Prüfung nach Drehungen.
+- Berücksichtigung tatsächlicher Objektabmessungen.
+- Rotierte Objektgrundflächen müssen korrekt behandelt werden.
+- Feste Küchenmöbel und vorhandene Einbauten als Hindernisse berücksichtigen.
+- Unzulässige Durchdringung von Wänden erkennen.
+
+### Darstellung
+
+Bei Kollision:
+
+- Betroffene Möbel farblich hervorheben.
+- Verständliche Warnung anzeigen.
+- Beteiligte Möbel nennen.
+
+Beispiel:
+
+„Kollision: MALM Bett überschneidet sich mit HEMNES Kommode.“
+
+Die App soll Möbel nicht unbemerkt verschieben, verkleinern oder automatisch entfernen.
+
+Die Kollision kann als Warnung angezeigt werden, während die manuelle Korrektur weiterhin möglich bleibt.
+
+Nicht jede mathematische Überlappung ist falsch: Zusammengehörige Möbelbestandteile, Bettwäsche, Monitore auf dem Schreibtisch und andere Zubehörteile müssen als kontrollierte Objektgruppen behandelt werden.
+
+---
+
+## 14. Modell- und Datenpersistenz
+
+Auch ohne Cloud-Anbindung sollen die Benutzereinstellungen und Möbelpositionen lokal gespeichert werden können.
+
+Implementiere:
+
+- Automatische lokale Speicherung der aktuellen Planung.
+- Wiederherstellung beim nächsten Programmstart.
+- Separaten Ausgangszustand.
+- Undo/Redo für Möbeländerungen.
+- Optionalen Export und Import eines Projektstandes als JSON.
+
+Der initiale Zustand muss reproduzierbar aus den Quelldaten erzeugt werden können.
+
+---
+
+## 15. Exportfunktionen
+
+### PNG-Screenshots
+
+Exportiere die aktuelle 3D-Ansicht als PNG.
+
+Anforderungen:
+
+- Ausreichende Bildauflösung.
+- Export unabhängig von den eingeblendeten Werkzeugleisten.
+- Aktuelle Kameraeinstellung übernehmen.
+- Wände und Möbel wie ausgewählt darstellen.
+- Geeignete Beleuchtung.
+- Transparenter Hintergrund optional.
+
+### PDF-Grundriss
+
+Erzeuge ein übersichtliches PDF mit:
+
+- Maßstäblicher beziehungsweise entsprechend dem kalibrierten Modell skalierter 2D-Draufsicht.
+- Raumbezeichnungen.
+- Möbeln.
+- Verfügbaren Raummaßen.
+- Eindeutiger Legende.
+- Datum des Exports.
+
+Nicht vermessene Abmessungen müssen als geschätzte Werte erkennbar bleiben.
+
+### 3D-Modell
+
+Exportiere das aktuelle Wohnungsmodell einschließlich Möbeln als `.glb` beziehungsweise `.gltf`.
+
+Das exportierte Modell muss:
+
+- Korrekte Geometrie enthalten.
+- Räumliche Positionen beibehalten.
+- Möbel nicht zusammenhanglos verschieben.
+- Materialien möglichst erhalten.
+- In üblichen 3D-Programmen geöffnet werden können.
+
+---
+
+## 16. Quellendatenaufbereitung
+
+Erzeuge eine nachvollziehbare Datenpipeline.
+
+### Schritt 1: Exposé
+
+- PDF-Seiten auslesen.
+- Referenzfotos extrahieren.
+- Grundriss separat speichern.
+- Raumkonturen rekonstruieren.
+- Räume identifizieren.
+- Türen und Fenster erfassen.
+- Raumflächen übernehmen.
+
+### Schritt 2: Möbelübersicht
+
+- Word-Datei analysieren.
+- Bilder extrahieren.
+- Möbeltitel und Maße erfassen.
+- Grundrissmarkierungen den richtigen Möbeln zuordnen.
+- Seitenumbrüche korrekt berücksichtigen.
+- Individuelle Möbel-IDs vergeben.
+
+### Schritt 3: Strukturierte Daten
+
+Erstelle beispielsweise:
+
+- `apartment.json`
+- `rooms.json`
+- `furniture.json`
+- `placements.json`
+- `references.json`
+
+Diese Dateien sollen die geometrischen und semantischen Daten von der eigentlichen 3D-Darstellung trennen.
+
+### Schritt 4: Geometrie-Validierung
+
+Prüfe:
+
+- Sind alle Räume vorhanden?
+- Stimmen ihre Flächen näherungsweise?
+- Sind die Wände geometrisch verbunden?
+- Liegen Türen und Fenster in den richtigen Wänden?
+- Sind alle Möbel vorhanden?
+- Sind Maße und Einheiten plausibel?
+- Liegen alle initialen Möbelpositionen im richtigen Raum?
+- Gibt es unerklärte Kollisionen?
+
+### Schritt 5: Unsicherheiten
+
+Lege eine übersichtliche Liste aller nicht eindeutig rekonstruierbaren Informationen an.
+
+Beispiele:
+
+- Exakte Deckenhöhe.
+- Exakte Wandlängen.
+- Fensterbreiten.
+- Türbreiten.
+- Tiefe des eingebauten Kleiderschranks.
+- Couchtischdurchmesser.
+- Einzelne nicht eindeutig sichtbare bauliche Details.
+
+Unterscheide jeweils zwischen:
+
+1. Aus Quelle bekannt.
+2. Aus Quelle geometrisch abgeleitet.
+3. Geschätzt.
+4. Nicht bestimmbar.
+
+---
+
+## 17. Benutzerfreundlichkeit und Performance
+
+Die Anwendung soll auch ohne CAD-Vorkenntnisse bedienbar sein.
+
+### Performance
+
+- Optimierte Mesh-Geometrien.
+- Wiederverwendung identischer Materialien.
+- Instancing für wiederkehrende Objekte, wo geeignet.
+- Angepasste Schattenqualität.
+- Keine unnötig hochauflösenden Texturen.
+- Reaktives Rendering nur soweit erforderlich.
+- Saubere Entsorgung nicht mehr benötigter WebGL-Ressourcen.
+
+### Bedienbarkeit
+
+- Intuitive Auswahl von Möbeln.
+- Sichtbares Feedback bei Aktionen.
+- Verständliche Fehlermeldungen.
+- Keine komplizierten Tastenkombinationen erforderlich.
+- Funktionierende Kamerasteuerung.
+- Kein unbeabsichtigtes Mitschwenken der Kamera beim Verschieben von Möbeln.
+
+---
+
+## 18. Projektstruktur und lokale Installation
+
+Erstelle den vollständigen, unmittelbar ausführbaren Quellcode.
+
+Eine mögliche Projektstruktur:
+
+```text
+wohnung-3d/
+├── public/
+│   ├── references/
+│   ├── textures/
+│   └── models/
+├── src/
+│   ├── components/
+│   ├── scene/
+│   ├── furniture/
+│   ├── geometry/
+│   ├── controls/
+│   ├── state/
+│   ├── data/
+│   ├── export/
+│   └── utils/
+├── scripts/
+├── source-files/
+│   ├── Expose.pdf
+│   └── Möbel.docx
+├── package.json
+├── README.md
+└── start.bat
+```
+
+Die konkrete Struktur darf angepasst werden, sofern sie nachvollziehbar ist.
+
+### Lokaler Start
+
+Die Anwendung soll mindestens über folgende Befehle gestartet werden können:
+
+```bash
+npm install
+npm run dev
+```
+
+Ergänze außerdem einen produktiven lokalen Build:
+
+```bash
+npm run build
+npm run preview
+```
+
+Beschreibe die Installation aller Voraussetzungen in einer leicht verständlichen README-Datei.
+
+Wenn eine `start.bat` erstellt wird, soll diese verständliche Fehlermeldungen ausgeben, falls Node.js oder erforderliche Pakete fehlen.
+
+---
+
+## 19. Qualitätssicherung und Abnahmekriterien
+
+Erstelle nicht nur Komponenten, sondern stelle ihre tatsächliche Funktion sicher.
+
+### Fachliche Abnahme
+
+Die Umsetzung ist erst vollständig, wenn folgende Anforderungen erfüllt sind:
+
+- [ ] Die Wohnung wurde auf Grundlage des Exposé-Grundrisses modelliert.
+- [ ] Die Raumaufteilung ist korrekt.
+- [ ] Die wichtigsten Bodenbeläge entsprechen den Referenzfotos.
+- [ ] Türen und Fenster sind vorhanden.
+- [ ] Die vorhandene Einbauküche ist erkennbar rekonstruiert.
+- [ ] Der bestehende Kleiderschrank ist enthalten.
+- [ ] Alle relevanten Heizkörper und Sanitärobjekte sind enthalten.
+- [ ] Sämtliche Möbel aus der Word-Datei sind inventarisiert und als 3D-Objekte vorhanden.
+- [ ] Die Möbel stehen an den vorgesehenen Positionen oder Konflikte sind dokumentiert.
+- [ ] Kein Möbel wurde ohne ausdrückliche Kennzeichnung skaliert oder verkleinert.
+- [ ] Der Esstisch ist 72 cm hoch.
+- [ ] Das KALLAX-Regal steht senkrecht.
+- [ ] Der Trockner steht in der Küche.
+- [ ] Die Waschmaschine steht im Badezimmer.
+- [ ] Alle sechs Esszimmerstühle sind vorhanden.
+- [ ] Fernseher, Soundbar, Monitore, Lampen und Bettwäsche sind berücksichtigt.
+- [ ] Alle vier Kameramodi funktionieren.
+- [ ] Möbel lassen sich auswählen, verschieben und drehen.
+- [ ] Möbel lassen sich hinzufügen und entfernen.
+- [ ] Der Ausgangszustand kann wiederhergestellt werden.
+- [ ] Die Kollisionsprüfung funktioniert.
+- [ ] PNG-Export funktioniert.
+- [ ] PDF-Export funktioniert.
+- [ ] GLB-Export funktioniert.
+- [ ] Die Anwendung startet lokal ohne Cloud-Dienste.
+- [ ] Es gibt keine kritischen JavaScript- oder WebGL-Fehler.
+
+### Technische Tests
+
+Erstelle geeignete automatisierte Tests für:
+
+- Maßeinheiten und Möbelabmessungen.
+- Möbelpositionsdaten.
+- Normalisierung der Objektrotation.
+- Kollisionslogik.
+- Datenvalidierung.
+- Import-/Exportdaten.
+- Wiederherstellung des Originalzustands.
+
+Prüfe abschließend einen produktiven Build.
+
+---
+
+## 20. Verbindliche Entwicklungsreihenfolge
+
+Führe den Entwicklungsauftrag in logisch aufeinanderfolgenden Phasen aus.
+
+**Phase 1 – Analyse**
+
+- Beide Quelldateien vollständig untersuchen.
+- Raumstruktur und Möbelinventar erfassen.
+- Unklare Maßangaben identifizieren.
+- Dokumentierte Datenmodelle erstellen.
+
+**Phase 2 – Geometrisches Grundmodell**
+
+- Wohnungskontur und Innenwände.
+- Bodenflächen.
+- Türen und Fenster.
+- Raummaßstab.
+- Grundlegende Beleuchtung.
+
+**Phase 3 – Bestehende Ausstattung**
+
+- Einbauküche.
+- Bad.
+- Kleiderschrank.
+- Heizkörper.
+- Balkon.
+
+**Phase 4 – Möbel**
+
+- Alle einzelnen Möbel geometrisch modellieren.
+- Materialien anwenden.
+- Zubehör ergänzen.
+- Ausgangspositionen umsetzen.
+- Maße und Kollisionen prüfen.
+
+**Phase 5 – Interaktivität**
+
+- Kamerasteuerung.
+- Raumwahl.
+- Möbelauswahl.
+- Verschieben.
+- Drehen.
+- Hinzufügen und Entfernen.
+- Zurücksetzen.
+
+**Phase 6 – Speichern und Export**
+
+- Lokale Datenspeicherung.
+- PNG.
+- PDF.
+- GLB.
+
+**Phase 7 – Prüfung und Optimierung**
+
+- Alle Funktionen testen.
+- Fehler beheben.
+- Performance optimieren.
+- Dokumentation erstellen.
+
+Arbeite selbstständig phasenweise, aber führe die Implementierung bis zu einer vollständig ausführbaren Anwendung fort. Belasse es nicht bei einer Architekturübersicht oder einem ersten Prototyp.
+
+Bei technischen Hindernissen dokumentiere die Ursache und implementiere eine funktionsfähige Alternative, soweit diese die Anforderungen erfüllt.
+
+---
+
+## 21. Prioritätsregeln bei widersprüchlichen Informationen
+
+Halte folgende Reihenfolge strikt ein:
+
+1. Explizite Korrekturen und Vorgaben des Auftraggebers.
+2. Dokumentierte Originalmaße der Möbel.
+3. Bauliche Raumaufteilung aus dem Exposé.
+4. Wohnungsfotos zur Material- und Objektrekonstruktion.
+5. Rote Positionsmarkierungen aus der Word-Datei.
+6. Plausible Annahmen bei fehlenden Informationen.
+
+Beispiele:
+
+- Wenn eine rote Positionsmarkierung zu klein ist, muss das Möbel mit den richtigen Maßen dargestellt werden.
+- Wenn eine Platzierung zu einer Kollision führt, muss der Konflikt angezeigt werden.
+- Wenn die Möbelmaße und das Referenzfoto unterschiedliche Achsreihenfolgen nahelegen, muss die Interpretation nachvollziehbar dokumentiert werden.
+- Wenn eine Wandlänge nicht bekannt ist, darf keine erfundene Messgenauigkeit ausgewiesen werden.
+- Wenn die Originalfotos eine fest eingebaute Einrichtung zeigen, darf diese nicht zugunsten einer illustrativen Einrichtung des Exposé-Grundrisses ersetzt werden.
+
+---
+
+## 22. Erwartetes Endergebnis
+
+Liefere ein vollständiges lokales Projekt mit:
+
+1. Funktionierender Web-Anwendung.
+2. Dreidimensionaler Wohnungsrekonstruktion.
+3. Vollständigem Möbelinventar.
+4. Möglichst originalgetreuen Möbelmodellen.
+5. Interaktiver Kamerasteuerung.
+6. Möbelbearbeitung.
+7. Kollisionsprüfung.
+8. Lokaler Speicherung.
+9. Exportfunktionen.
+10. Vollständigem Quellcode.
+11. Installationsanleitung.
+12. Liste der verbleibenden geometrischen Unsicherheiten.
+
+Die Anwendung muss beim ersten Start die Wohnung bereits vollständig möbliert darstellen. Es darf nicht erforderlich sein, jedes Möbel zunächst manuell anzulegen.
+
+**Abschließende Anweisung:**
+
+Beginne mit der Analyse der beiden Originaldateien. Erstelle daraus das metrische Datenmodell und implementiere anschließend die vollständige Anwendung.
+
+Achte darauf, dass die resultierende 3D-Wohnung tatsächlich aus maßhaltigen, separat modellierten Objekten aufgebaut ist und nicht lediglich eine visuelle Interpretation ohne geometrische Konsistenz darstellt.
+
+Führe die Entwicklungsarbeit bis zu einem getesteten, lokal ausführbaren Ergebnis durch. Teile am Ende die Startanleitung, die implementierten Funktionen und die verbliebenen Unsicherheiten mit.

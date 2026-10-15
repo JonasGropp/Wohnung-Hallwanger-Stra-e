@@ -1,0 +1,242 @@
+[
+  {
+    "id": "kitchen",
+    "name": "Küche",
+    "sourceArea": 17.9,
+    "polygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.9772,
+        0.0
+      ],
+      [
+        3.9772,
+        2.2003
+      ],
+      [
+        4.3086,
+        2.2003
+      ],
+      [
+        4.3086,
+        4.3454
+      ],
+      [
+        0.0,
+        4.3454
+      ]
+    ],
+    "material": "tile",
+    "modelArea": 17.993,
+    "deviationPercent": 0.5,
+    "source": "Expose.pdf, Seite 13",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "bath",
+    "name": "Badezimmer",
+    "sourceArea": 6.5,
+    "polygon": [
+      [
+        4.0969,
+        0.0
+      ],
+      [
+        7.4204,
+        0.0
+      ],
+      [
+        7.4204,
+        2.0438
+      ],
+      [
+        4.7689,
+        2.0438
+      ],
+      [
+        4.7689,
+        1.7676
+      ],
+      [
+        4.0969,
+        1.7676
+      ]
+    ],
+    "material": "grayTile",
+    "modelArea": 6.607,
+    "deviationPercent": 1.6,
+    "source": "Expose.pdf, Seite 13",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "hall",
+    "name": "Flur",
+    "sourceArea": 8.1,
+    "polygon": [
+      [
+        4.4559,
+        2.2095
+      ],
+      [
+        11.2687,
+        2.2095
+      ],
+      [
+        11.2687,
+        3.388
+      ],
+      [
+        4.4559,
+        3.388
+      ]
+    ],
+    "material": "lightWood",
+    "modelArea": 8.029,
+    "deviationPercent": -0.9,
+    "source": "Expose.pdf, Seite 13",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "living",
+    "name": "Wohnzimmer",
+    "sourceArea": 19.9,
+    "polygon": [
+      [
+        0.0,
+        4.6032
+      ],
+      [
+        4.3086,
+        4.6032
+      ],
+      [
+        4.3086,
+        9.2617
+      ],
+      [
+        0.0,
+        9.2617
+      ]
+    ],
+    "material": "parquet",
+    "modelArea": 20.072,
+    "deviationPercent": 0.9,
+    "source": "Expose.pdf, Seite 13",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "bedroom",
+    "name": "Schlafzimmer",
+    "sourceArea": 16.3,
+    "polygon": [
+      [
+        4.4559,
+        3.6365
+      ],
+      [
+        8.1385,
+        3.6365
+      ],
+      [
+        8.1385,
+        7.982
+      ],
+      [
+        4.4559,
+        7.982
+      ]
+    ],
+    "material": "lightWood",
+    "modelArea": 16.003,
+    "deviationPercent": -1.8,
+    "source": "Expose.pdf, Seite 13",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "office",
+    "name": "Büro / Kinderzimmer",
+    "sourceArea": 13,
+    "polygon": [
+      [
+        8.2858,
+        3.6365
+      ],
+      [
+        11.2687,
+        3.6365
+      ],
+      [
+        11.2687,
+        7.982
+      ],
+      [
+        8.2858,
+        7.982
+      ]
+    ],
+    "material": "lightWood",
+    "modelArea": 12.962,
+    "deviationPercent": -0.3,
+    "source": "Expose.pdf, Seite 13",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "stairs",
+    "name": "Treppenhaus",
+    "sourceArea": 2.9,
+    "polygon": [
+      [
+        7.5677,
+        0.0
+      ],
+      [
+        8.8013,
+        0.0
+      ],
+      [
+        8.8013,
+        2.0438
+      ],
+      [
+        7.5677,
+        2.0438
+      ]
+    ],
+    "material": "stone",
+    "modelArea": 2.521,
+    "deviationPercent": -13.1,
+    "source": "Expose.pdf, Seite 13",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "balcony",
+    "name": "Balkon",
+    "sourceArea": 8.8,
+    "polygon": [
+      [
+        4.5296,
+        8.249
+      ],
+      [
+        11.2687,
+        8.249
+      ],
+      [
+        11.2687,
+        9.2617
+      ],
+      [
+        4.5296,
+        9.2617
+      ]
+    ],
+    "material": "terracotta",
+    "modelArea": 6.825,
+    "deviationPercent": -22.4,
+    "source": "Expose.pdf, Seite 13",
+    "status": "abgeleitet"
+  }
+]

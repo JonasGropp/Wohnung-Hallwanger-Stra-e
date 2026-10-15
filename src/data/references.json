@@ -1,0 +1,432 @@
+{
+  "originals": [
+    "source-files/Expose.pdf",
+    "source-files/Möbel.docx"
+  ],
+  "extraction": "/references/extraction.json",
+  "floorplan": "/references/expose-13-image-1.jpeg",
+  "furniture": [
+    {
+      "id": "daybed",
+      "photo": "/references/moebel-image2.png",
+      "marking": "/references/moebel-image3.png",
+      "originalDimensions": "209 × 86 × 83 cm",
+      "assumptions": []
+    },
+    {
+      "id": "dresser",
+      "photo": "/references/moebel-image4.jpeg",
+      "marking": "/references/moebel-image5.png",
+      "originalDimensions": "160 × 96 × 50 cm",
+      "assumptions": [
+        "Wickelaufsatz zusätzlich 12 cm hoch, geschätzt."
+      ]
+    },
+    {
+      "id": "bed",
+      "photo": "/references/moebel-image6.jpeg",
+      "marking": "/references/moebel-image7.png",
+      "originalDimensions": "209 × 196 × 38 cm",
+      "assumptions": [
+        "38 cm ist Rahmenhöhe. Kopfteil 90 cm und Matratze 18 cm geschätzt.",
+        "Exposé zeigt eine abweichende illustrative Bettausrichtung; Word-Markierung hat Vorrang."
+      ]
+    },
+    {
+      "id": "bedside-1",
+      "photo": "/references/moebel-image6.jpeg",
+      "marking": "/references/moebel-image7.png",
+      "originalDimensions": "46 × 35 × 70 cm",
+      "assumptions": [
+        "Lampenmaß aus Foto geschätzt."
+      ]
+    },
+    {
+      "id": "bedside-2",
+      "photo": "/references/moebel-image6.jpeg",
+      "marking": "/references/moebel-image7.png",
+      "originalDimensions": "46 × 35 × 70 cm",
+      "assumptions": [
+        "Lampenmaß aus Foto geschätzt."
+      ]
+    },
+    {
+      "id": "billy-1",
+      "photo": "/references/moebel-image8.jpeg",
+      "marking": "/references/moebel-image9.png",
+      "originalDimensions": "80 × 41 × 202 cm",
+      "assumptions": []
+    },
+    {
+      "id": "billy-2",
+      "photo": "/references/moebel-image8.jpeg",
+      "marking": "/references/moebel-image9.png",
+      "originalDimensions": "80 × 41 × 202 cm",
+      "assumptions": []
+    },
+    {
+      "id": "besta",
+      "photo": "/references/moebel-image10.jpeg",
+      "marking": "/references/moebel-image11.png",
+      "originalDimensions": "180 × 40 × 38 cm",
+      "assumptions": [
+        "Fernseher 120 × 70 cm und Soundbar 85 cm geschätzt; Zubehör gruppiert."
+      ]
+    },
+    {
+      "id": "vanity",
+      "photo": "/references/moebel-image12.jpeg",
+      "marking": "/references/moebel-image13.png",
+      "originalDimensions": "110 × 75 × 45 cm",
+      "assumptions": []
+    },
+    {
+      "id": "skruvby-side",
+      "photo": "/references/moebel-image14.jpeg",
+      "marking": "/references/moebel-image15.png",
+      "originalDimensions": "120 × 38 × 90 cm",
+      "assumptions": []
+    },
+    {
+      "id": "skruvby-cab",
+      "photo": "/references/moebel-image14.jpeg",
+      "marking": "/references/moebel-image15.png",
+      "originalDimensions": "90 × 70 × 38 cm",
+      "assumptions": [
+        "Maßreihenfolge H × B × T anhand Bild normalisiert."
+      ]
+    },
+    {
+      "id": "console",
+      "photo": "/references/moebel-image16.jpeg",
+      "marking": "/references/moebel-image17.png",
+      "originalDimensions": "157 × 74 × 40 cm",
+      "assumptions": []
+    },
+    {
+      "id": "kallax",
+      "photo": "/references/moebel-image18.jpeg",
+      "marking": "/references/moebel-image19.png",
+      "originalDimensions": "147 × 39 × 75 cm",
+      "assumptions": [
+        "Auftraggeberkorrektur: senkrecht, 75 × 39 × 147 cm."
+      ]
+    },
+    {
+      "id": "hauga",
+      "photo": "/references/moebel-image20.png",
+      "marking": "/references/moebel-image21.png",
+      "originalDimensions": "199 × 70 × 46 cm",
+      "assumptions": [
+        "H × B × T aus Foto normalisiert."
+      ]
+    },
+    {
+      "id": "babybay",
+      "photo": "/references/moebel-image22.png",
+      "marking": "/references/moebel-image23.png",
+      "originalDimensions": "88 × 79 × 46 cm",
+      "assumptions": [
+        "B × H × T anhand Produktform; Liegefläche 50 cm geschätzt."
+      ]
+    },
+    {
+      "id": "dining",
+      "photo": "/references/moebel-image24.jpeg",
+      "marking": "/references/moebel-image25.png",
+      "originalDimensions": "180 × 100 × 125 cm",
+      "assumptions": [
+        "Auftraggeberkorrektur: Höhe 72 cm statt 125 cm."
+      ]
+    },
+    {
+      "id": "chair-1",
+      "photo": "/references/moebel-image24.jpeg",
+      "marking": "/references/moebel-image25.png",
+      "originalDimensions": "94 × 46 × 50 cm",
+      "assumptions": [
+        "H × B × T aus Foto; Sitzhöhe 46 cm geschätzt."
+      ]
+    },
+    {
+      "id": "chair-2",
+      "photo": "/references/moebel-image24.jpeg",
+      "marking": "/references/moebel-image25.png",
+      "originalDimensions": "94 × 46 × 50 cm",
+      "assumptions": [
+        "H × B × T aus Foto; Sitzhöhe 46 cm geschätzt."
+      ]
+    },
+    {
+      "id": "chair-3",
+      "photo": "/references/moebel-image24.jpeg",
+      "marking": "/references/moebel-image25.png",
+      "originalDimensions": "94 × 46 × 50 cm",
+      "assumptions": [
+        "H × B × T aus Foto; Sitzhöhe 46 cm geschätzt."
+      ]
+    },
+    {
+      "id": "chair-4",
+      "photo": "/references/moebel-image24.jpeg",
+      "marking": "/references/moebel-image25.png",
+      "originalDimensions": "94 × 46 × 50 cm",
+      "assumptions": [
+        "H × B × T aus Foto; Sitzhöhe 46 cm geschätzt."
+      ]
+    },
+    {
+      "id": "chair-5",
+      "photo": "/references/moebel-image24.jpeg",
+      "marking": "/references/moebel-image25.png",
+      "originalDimensions": "94 × 46 × 50 cm",
+      "assumptions": [
+        "H × B × T aus Foto; Sitzhöhe 46 cm geschätzt."
+      ]
+    },
+    {
+      "id": "chair-6",
+      "photo": "/references/moebel-image24.jpeg",
+      "marking": "/references/moebel-image25.png",
+      "originalDimensions": "94 × 46 × 50 cm",
+      "assumptions": [
+        "H × B × T aus Foto; Sitzhöhe 46 cm geschätzt."
+      ]
+    },
+    {
+      "id": "sofa-1",
+      "photo": "/references/moebel-image26.jpeg",
+      "marking": "/references/moebel-image27.png",
+      "originalDimensions": "110 × 180 × 70 cm",
+      "assumptions": []
+    },
+    {
+      "id": "sofa-2",
+      "photo": "/references/moebel-image26.jpeg",
+      "marking": "/references/moebel-image27.png",
+      "originalDimensions": "100 × 120 × 70 cm",
+      "assumptions": []
+    },
+    {
+      "id": "coffee",
+      "photo": "/references/moebel-image26.jpeg",
+      "marking": "/references/moebel-image27.png",
+      "originalDimensions": "Nicht angegeben",
+      "assumptions": [
+        "Durchmesser 70 cm, Höhe 42 cm geschätzt; editierbar."
+      ]
+    },
+    {
+      "id": "desk",
+      "photo": "/references/moebel-image28.jpeg",
+      "marking": "/references/moebel-image29.png",
+      "originalDimensions": "160 × 80 cm",
+      "assumptions": [
+        "Höhe 74 cm geschätzt und editierbar. Monitor-/Zubehörmaße geschätzt."
+      ]
+    },
+    {
+      "id": "dryer",
+      "photo": "/references/moebel-image30.jpeg",
+      "marking": "/references/moebel-image31.png",
+      "originalDimensions": "60 × 86 × 65 cm",
+      "assumptions": []
+    },
+    {
+      "id": "washer",
+      "photo": "/references/moebel-image30.jpeg",
+      "marking": "/references/moebel-image32.png",
+      "originalDimensions": "60 × 86 × 60 cm",
+      "assumptions": []
+    },
+    {
+      "id": "kitchen-0",
+      "photo": "/references/expose-01-image-1.jpeg",
+      "marking": null,
+      "originalDimensions": "Keine Bemaßung in Quelle",
+      "assumptions": [
+        "Maße aus Foto/Plan geschätzt; Geräteaufteilung teilweise verdeckt."
+      ]
+    },
+    {
+      "id": "kitchen-1",
+      "photo": "/references/expose-01-image-1.jpeg",
+      "marking": null,
+      "originalDimensions": "Keine Bemaßung in Quelle",
+      "assumptions": [
+        "Maße aus Foto/Plan geschätzt; Geräteaufteilung teilweise verdeckt."
+      ]
+    },
+    {
+      "id": "kitchen-2",
+      "photo": "/references/expose-01-image-1.jpeg",
+      "marking": null,
+      "originalDimensions": "Keine Bemaßung in Quelle",
+      "assumptions": [
+        "Maße aus Foto/Plan geschätzt; Geräteaufteilung teilweise verdeckt."
+      ]
+    },
+    {
+      "id": "kitchen-3",
+      "photo": "/references/expose-01-image-1.jpeg",
+      "marking": null,
+      "originalDimensions": "Keine Bemaßung in Quelle",
+      "assumptions": [
+        "Maße aus Foto/Plan geschätzt; Geräteaufteilung teilweise verdeckt."
+      ]
+    },
+    {
+      "id": "kitchen-4",
+      "photo": "/references/expose-01-image-1.jpeg",
+      "marking": null,
+      "originalDimensions": "Keine Bemaßung in Quelle",
+      "assumptions": [
+        "Maße aus Foto/Plan geschätzt; Geräteaufteilung teilweise verdeckt."
+      ]
+    },
+    {
+      "id": "kitchen-5",
+      "photo": "/references/expose-01-image-1.jpeg",
+      "marking": null,
+      "originalDimensions": "Keine Bemaßung in Quelle",
+      "assumptions": [
+        "Maße aus Foto/Plan geschätzt; Geräteaufteilung teilweise verdeckt."
+      ]
+    },
+    {
+      "id": "kitchen-6",
+      "photo": "/references/expose-01-image-1.jpeg",
+      "marking": null,
+      "originalDimensions": "Keine Bemaßung in Quelle",
+      "assumptions": [
+        "Maße aus Foto/Plan geschätzt; Geräteaufteilung teilweise verdeckt."
+      ]
+    },
+    {
+      "id": "kitchen-7",
+      "photo": "/references/expose-01-image-1.jpeg",
+      "marking": null,
+      "originalDimensions": "Keine Bemaßung in Quelle",
+      "assumptions": [
+        "Maße aus Foto/Plan geschätzt; Geräteaufteilung teilweise verdeckt."
+      ]
+    },
+    {
+      "id": "wardrobe",
+      "photo": "/references/expose-08-image-1.jpeg",
+      "marking": null,
+      "originalDimensions": "Keine Bemaßung in Quelle",
+      "assumptions": [
+        "2,60 × 0,60 × 2,40 m geschätzt. Westwand aus Foto S. 8 und Word-Plan; Exposé-Möblierung zeigt widersprüchlich Ostwand."
+      ]
+    },
+    {
+      "id": "basin",
+      "photo": "/references/expose-10-image-1.jpeg",
+      "marking": null,
+      "originalDimensions": "Keine Bemaßung in Quelle",
+      "assumptions": [
+        "Abmessungen geschätzt."
+      ]
+    },
+    {
+      "id": "wc",
+      "photo": "/references/expose-10-image-2.jpeg",
+      "marking": null,
+      "originalDimensions": "Keine Bemaßung in Quelle",
+      "assumptions": [
+        "Position an Trennwand zur Dusche aus Fotos abgeleitet."
+      ]
+    },
+    {
+      "id": "shower",
+      "photo": "/references/expose-11-image-1.jpeg",
+      "marking": null,
+      "originalDimensions": "Keine Bemaßung in Quelle",
+      "assumptions": [
+        "Duschlänge und Trennwandposition geschätzt."
+      ]
+    },
+    {
+      "id": "radiator-0",
+      "photo": "/references/expose-01-image-1.jpeg",
+      "marking": null,
+      "originalDimensions": "Keine Bemaßung in Quelle",
+      "assumptions": [
+        "Position aus Foto, Maße und Montagehöhe geschätzt."
+      ]
+    },
+    {
+      "id": "radiator-1",
+      "photo": "/references/expose-01-image-1.jpeg",
+      "marking": null,
+      "originalDimensions": "Keine Bemaßung in Quelle",
+      "assumptions": [
+        "Position aus Foto, Maße und Montagehöhe geschätzt."
+      ]
+    },
+    {
+      "id": "radiator-2",
+      "photo": "/references/expose-07-image-1.jpeg",
+      "marking": null,
+      "originalDimensions": "Keine Bemaßung in Quelle",
+      "assumptions": [
+        "Position aus Foto, Maße und Montagehöhe geschätzt."
+      ]
+    },
+    {
+      "id": "radiator-3",
+      "photo": "/references/expose-08-image-1.jpeg",
+      "marking": null,
+      "originalDimensions": "Keine Bemaßung in Quelle",
+      "assumptions": [
+        "Position aus Foto, Maße und Montagehöhe geschätzt."
+      ]
+    },
+    {
+      "id": "radiator-4",
+      "photo": "/references/expose-07-image-2.jpeg",
+      "marking": null,
+      "originalDimensions": "Keine Bemaßung in Quelle",
+      "assumptions": [
+        "Position aus Foto, Maße und Montagehöhe geschätzt."
+      ]
+    },
+    {
+      "id": "radiator-5",
+      "photo": "/references/expose-11-image-2.jpeg",
+      "marking": null,
+      "originalDimensions": "Keine Bemaßung in Quelle",
+      "assumptions": [
+        "Position aus Foto, Maße und Montagehöhe geschätzt."
+      ]
+    },
+    {
+      "id": "balcony-table",
+      "photo": null,
+      "marking": null,
+      "originalDimensions": "Keine Bemaßung in Quelle",
+      "assumptions": [
+        "Frei erfundener, entfernbarer Planungsvorschlag."
+      ]
+    },
+    {
+      "id": "balcony-chair-0",
+      "photo": null,
+      "marking": null,
+      "originalDimensions": "Keine Bemaßung in Quelle",
+      "assumptions": [
+        "Frei erfundener, entfernbarer Planungsvorschlag."
+      ]
+    },
+    {
+      "id": "balcony-chair-1",
+      "photo": null,
+      "marking": null,
+      "originalDimensions": "Keine Bemaßung in Quelle",
+      "assumptions": [
+        "Frei erfundener, entfernbarer Planungsvorschlag."
+      ]
+    }
+  ]
+}

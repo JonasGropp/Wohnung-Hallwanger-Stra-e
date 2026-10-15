@@ -1,0 +1,590 @@
+[
+  {
+    "id": "daybed",
+    "room": "office",
+    "position": [
+      10.65,
+      0,
+      4.68
+    ],
+    "rotation": -90,
+    "source": "/references/moebel-image3.png",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "dresser",
+    "room": "bedroom",
+    "position": [
+      5.57,
+      0,
+      3.96
+    ],
+    "rotation": 0,
+    "source": "/references/moebel-image5.png",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "bed",
+    "room": "bedroom",
+    "position": [
+      6.45,
+      0,
+      6.05
+    ],
+    "rotation": -90,
+    "source": "/references/moebel-image7.png",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "bedside-1",
+    "room": "bedroom",
+    "position": [
+      7.26,
+      0,
+      4.77
+    ],
+    "rotation": -90,
+    "source": "/references/moebel-image7.png",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "bedside-2",
+    "room": "bedroom",
+    "position": [
+      7.26,
+      0,
+      7.33
+    ],
+    "rotation": -90,
+    "source": "/references/moebel-image7.png",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "billy-1",
+    "room": "living",
+    "position": [
+      1.05,
+      0,
+      4.82
+    ],
+    "rotation": 0,
+    "source": "/references/moebel-image9.png",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "billy-2",
+    "room": "living",
+    "position": [
+      1.87,
+      0,
+      4.82
+    ],
+    "rotation": 0,
+    "source": "/references/moebel-image9.png",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "besta",
+    "room": "living",
+    "position": [
+      4.07,
+      0,
+      7.36
+    ],
+    "rotation": -90,
+    "source": "/references/moebel-image11.png",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "vanity",
+    "room": "bedroom",
+    "position": [
+      7.25,
+      0,
+      7.72
+    ],
+    "rotation": 180,
+    "source": "/references/moebel-image13.png",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "skruvby-side",
+    "room": "kitchen",
+    "position": [
+      1.64,
+      0,
+      0.24
+    ],
+    "rotation": 0,
+    "source": "/references/moebel-image15.png",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "skruvby-cab",
+    "room": "kitchen",
+    "position": [
+      2.61,
+      0,
+      0.24
+    ],
+    "rotation": 0,
+    "source": "/references/moebel-image15.png",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "console",
+    "room": "hall",
+    "position": [
+      5.33,
+      0,
+      3.18
+    ],
+    "rotation": 180,
+    "source": "/references/moebel-image17.png",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "kallax",
+    "room": "hall",
+    "position": [
+      9.94,
+      0,
+      3.16
+    ],
+    "rotation": 180,
+    "source": "/references/moebel-image19.png",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "hauga",
+    "room": "hall",
+    "position": [
+      10.93,
+      0,
+      2.82
+    ],
+    "rotation": -90,
+    "source": "/references/moebel-image21.png",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "babybay",
+    "room": "bedroom",
+    "position": [
+      6.31,
+      0,
+      7.34
+    ],
+    "rotation": 0,
+    "source": "/references/moebel-image23.png",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "dining",
+    "room": "kitchen",
+    "position": [
+      1.59,
+      0,
+      1.4
+    ],
+    "rotation": 0,
+    "source": "/references/moebel-image25.png",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "chair-1",
+    "room": "kitchen",
+    "position": [
+      1.1,
+      0,
+      0.6
+    ],
+    "rotation": 0,
+    "source": "/references/moebel-image25.png",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "chair-2",
+    "room": "kitchen",
+    "position": [
+      2.05,
+      0,
+      0.6
+    ],
+    "rotation": 0,
+    "source": "/references/moebel-image25.png",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "chair-3",
+    "room": "kitchen",
+    "position": [
+      1.1,
+      0,
+      2.2
+    ],
+    "rotation": 180,
+    "source": "/references/moebel-image25.png",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "chair-4",
+    "room": "kitchen",
+    "position": [
+      2.05,
+      0,
+      2.2
+    ],
+    "rotation": 180,
+    "source": "/references/moebel-image25.png",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "chair-5",
+    "room": "kitchen",
+    "position": [
+      0.41,
+      0,
+      1.4
+    ],
+    "rotation": 90,
+    "source": "/references/moebel-image25.png",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "chair-6",
+    "room": "kitchen",
+    "position": [
+      2.77,
+      0,
+      1.4
+    ],
+    "rotation": -90,
+    "source": "/references/moebel-image25.png",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "sofa-1",
+    "room": "living",
+    "position": [
+      0.98,
+      0,
+      7.44
+    ],
+    "rotation": 90,
+    "source": "/references/moebel-image27.png",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "sofa-2",
+    "room": "living",
+    "position": [
+      0.68,
+      0,
+      8.49
+    ],
+    "rotation": 90,
+    "source": "/references/moebel-image27.png",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "coffee",
+    "room": "living",
+    "position": [
+      2.25,
+      0,
+      8.1
+    ],
+    "rotation": 0,
+    "source": "/references/moebel-image27.png",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "desk",
+    "room": "office",
+    "position": [
+      8.73,
+      0,
+      6.16
+    ],
+    "rotation": 90,
+    "source": "/references/moebel-image29.png",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "dryer",
+    "room": "kitchen",
+    "position": [
+      3.6,
+      0,
+      0.43
+    ],
+    "rotation": 0,
+    "source": "/references/moebel-image31.png",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "washer",
+    "room": "bath",
+    "position": [
+      6.02,
+      0,
+      0.35
+    ],
+    "rotation": 0,
+    "source": "/references/moebel-image32.png",
+    "status": "abgeleitet"
+  },
+  {
+    "id": "kitchen-0",
+    "room": "kitchen",
+    "position": [
+      1.03,
+      0,
+      4.07
+    ],
+    "rotation": 180,
+    "source": null,
+    "status": "geschätzt"
+  },
+  {
+    "id": "kitchen-1",
+    "room": "kitchen",
+    "position": [
+      2.12,
+      0,
+      4.07
+    ],
+    "rotation": 180,
+    "source": null,
+    "status": "geschätzt"
+  },
+  {
+    "id": "kitchen-2",
+    "room": "kitchen",
+    "position": [
+      0.3,
+      0,
+      3.33
+    ],
+    "rotation": 90,
+    "source": null,
+    "status": "geschätzt"
+  },
+  {
+    "id": "kitchen-3",
+    "room": "kitchen",
+    "position": [
+      0.3,
+      0,
+      2.78
+    ],
+    "rotation": 90,
+    "source": null,
+    "status": "geschätzt"
+  },
+  {
+    "id": "kitchen-4",
+    "room": "kitchen",
+    "position": [
+      1.05,
+      0,
+      2.48
+    ],
+    "rotation": 0,
+    "source": null,
+    "status": "geschätzt"
+  },
+  {
+    "id": "kitchen-5",
+    "room": "kitchen",
+    "position": [
+      3.77,
+      0,
+      1.45
+    ],
+    "rotation": -90,
+    "source": null,
+    "status": "geschätzt"
+  },
+  {
+    "id": "kitchen-6",
+    "room": "kitchen",
+    "position": [
+      1.0,
+      1.5,
+      4.24
+    ],
+    "rotation": 180,
+    "source": null,
+    "status": "geschätzt"
+  },
+  {
+    "id": "kitchen-7",
+    "room": "kitchen",
+    "position": [
+      2.12,
+      1.55,
+      4.24
+    ],
+    "rotation": 180,
+    "source": null,
+    "status": "geschätzt"
+  },
+  {
+    "id": "wardrobe",
+    "room": "bedroom",
+    "position": [
+      4.77,
+      0,
+      6.36
+    ],
+    "rotation": 90,
+    "source": null,
+    "status": "geschätzt"
+  },
+  {
+    "id": "basin",
+    "room": "bath",
+    "position": [
+      4.31,
+      0,
+      0.65
+    ],
+    "rotation": 90,
+    "source": null,
+    "status": "geschätzt"
+  },
+  {
+    "id": "wc",
+    "room": "bath",
+    "position": [
+      6.2,
+      0.1,
+      1.03
+    ],
+    "rotation": -90,
+    "source": null,
+    "status": "geschätzt"
+  },
+  {
+    "id": "shower",
+    "room": "bath",
+    "position": [
+      6.93,
+      0,
+      1.0
+    ],
+    "rotation": 0,
+    "source": null,
+    "status": "geschätzt"
+  },
+  {
+    "id": "radiator-0",
+    "room": "kitchen",
+    "position": [
+      0.13,
+      0.16,
+      0.72
+    ],
+    "rotation": 90,
+    "source": null,
+    "status": "geschätzt"
+  },
+  {
+    "id": "radiator-1",
+    "room": "kitchen",
+    "position": [
+      0.13,
+      0.16,
+      2.82
+    ],
+    "rotation": 90,
+    "source": null,
+    "status": "geschätzt"
+  },
+  {
+    "id": "radiator-2",
+    "room": "living",
+    "position": [
+      2.18,
+      0.16,
+      9.14
+    ],
+    "rotation": 180,
+    "source": null,
+    "status": "geschätzt"
+  },
+  {
+    "id": "radiator-3",
+    "room": "bedroom",
+    "position": [
+      4.75,
+      0.16,
+      7.86
+    ],
+    "rotation": 180,
+    "source": null,
+    "status": "geschätzt"
+  },
+  {
+    "id": "radiator-4",
+    "room": "office",
+    "position": [
+      10.7,
+      0.16,
+      7.83
+    ],
+    "rotation": 180,
+    "source": null,
+    "status": "geschätzt"
+  },
+  {
+    "id": "radiator-5",
+    "room": "hall",
+    "position": [
+      10.17,
+      0.16,
+      2.29
+    ],
+    "rotation": 0,
+    "source": null,
+    "status": "geschätzt"
+  },
+  {
+    "id": "balcony-table",
+    "room": "balcony",
+    "position": [
+      8.15,
+      0,
+      8.75
+    ],
+    "rotation": 0,
+    "source": null,
+    "status": "geschätzt"
+  },
+  {
+    "id": "balcony-chair-0",
+    "room": "balcony",
+    "position": [
+      7.4,
+      0,
+      8.75
+    ],
+    "rotation": 90,
+    "source": null,
+    "status": "geschätzt"
+  },
+  {
+    "id": "balcony-chair-1",
+    "room": "balcony",
+    "position": [
+      8.9,
+      0,
+      8.75
+    ],
+    "rotation": -90,
+    "source": null,
+    "status": "geschätzt"
+  }
+]
