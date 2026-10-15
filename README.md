@@ -1,6 +1,15 @@
 # Hallwanger · Interaktiver Wohnungsplaner
 
 
+## Website ohne Installation
+
+Vorgesehene Website-Adresse: **https://jonasgropp.github.io/Wohnung-Hallwanger-Stra-e/**
+
+Die Adresse ist nutzbar, sobald GitHub Pages aktiviert und der Workflow „Wohnungsplaner veröffentlichen“ erfolgreich abgeschlossen ist. Auf dem eigenen PC sind dann weder Node.js noch eine Installation erforderlich. Änderungen an der Planung bleiben weiterhin im Browser gespeichert. Eine lokal gespeicherte Planung kann per JSON-Export/-Import auf die Website übertragen werden.
+
+Die Veröffentlichung läuft über `.github/workflows/pages.yml`. Bei Bedarf in **Settings → Pages → Build and deployment → Source → GitHub Actions** aktivieren und anschließend den Workflow unter **Actions** starten. Weitere Details: [GitHub-Pages-Veröffentlichung](docs/GITHUB-PAGES.md).
+
+
 ## Fertige Anwendung herunterladen
 
 **[Offline-Anwendung als ZIP herunterladen](https://github.com/JonasGropp/Wohnung-Hallwanger-Stra-e/raw/refs/heads/main/downloads/Hallwanger-Offline.zip)** (ca. 25 MB).

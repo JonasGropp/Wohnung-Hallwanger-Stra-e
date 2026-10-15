@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {assetUrl} from '../utils/assets';
 import type {Furniture,Project,Room,Vec3} from '../types';
 import {rooms,apartment} from '../data';
 import {furnitureParts} from '../geometry/models';
@@ -9,7 +10,7 @@ const mats:Record<string,THREE.MeshStandardMaterial>={};
 export function material(name:string):THREE.MeshStandardMaterial{
  if(mats[name])return mats[name];const mat=new THREE.MeshStandardMaterial({color:colors[name]||'#eee9de',roughness:name==='metal'?.3:.78,metalness:name==='metal'?.6:name==='mirror'?.75:0});
  if(name==='glass'){mat.transparent=true;mat.opacity=.22;mat.depthWrite=false;mat.roughness=.1;mat.side=THREE.DoubleSide}
- if(['wood','fabric','grayTile'].includes(name)){const tex=new THREE.TextureLoader().load(`/textures/${name}.png`);tex.wrapS=tex.wrapT=THREE.RepeatWrapping;tex.colorSpace=THREE.SRGBColorSpace;mat.map=tex;mat.color.set('#ffffff')}
+ if(['wood','fabric','grayTile'].includes(name)){const tex=new THREE.TextureLoader().load(assetUrl(`textures/${name}.png`));tex.wrapS=tex.wrapT=THREE.RepeatWrapping;tex.colorSpace=THREE.SRGBColorSpace;mat.map=tex;mat.color.set('#ffffff')}
  mats[name]=mat;return mat;
 }
 function mesh(size:Vec3,pos:Vec3,mat:THREE.Material,shape:'box'|'cylinder'|'sphere'='box'){
@@ -19,7 +20,7 @@ export function furnitureGroup(f:Furniture){const group=new THREE.Group();group.
  for(const p of furnitureParts(f)){const m=mesh(p.size,p.position,material(p.material),p.shape);if(p.rotation)m.rotation.set(...p.rotation);group.add(m)}return group;
 }
 const floorMats=new Map<string,THREE.MeshStandardMaterial>();
-function floorMaterial(r:Room){if(floorMats.has(r.material))return floorMats.get(r.material)!;const tex=new THREE.TextureLoader().load(`/textures/${r.material==='stone'?'tile':r.material}.png`);tex.wrapS=tex.wrapT=THREE.RepeatWrapping;tex.colorSpace=THREE.SRGBColorSpace;tex.repeat.set(.7,.7);tex.anisotropy=4;const m=new THREE.MeshStandardMaterial({map:tex,roughness:.82});floorMats.set(r.material,m);return m;}
+function floorMaterial(r:Room){if(floorMats.has(r.material))return floorMats.get(r.material)!;const tex=new THREE.TextureLoader().load(assetUrl(`textures/${r.material==='stone'?'tile':r.material}.png`));tex.wrapS=tex.wrapT=THREE.RepeatWrapping;tex.colorSpace=THREE.SRGBColorSpace;tex.repeat.set(.7,.7);tex.anisotropy=4;const m=new THREE.MeshStandardMaterial({map:tex,roughness:.82});floorMats.set(r.material,m);return m;}
 export interface SceneSettings{walls:'solid'|'ghost'|'hidden';ceiling:boolean;room:string|null}
 export function architecture(p:Project,settings:SceneSettings){const g=new THREE.Group();g.name='Wohnung · baulicher Bestand';const s=p.calibration;
  for(const room of rooms){if(settings.room&&settings.room!==room.id)continue;const shape=new THREE.Shape();room.polygon.forEach(([x,z],i)=>i===0?shape.moveTo(x*s,-z*s):shape.lineTo(x*s,-z*s));shape.closePath();const geometry=new THREE.ShapeGeometry(shape);geometry.rotateX(-Math.PI/2);const floor=new THREE.Mesh(geometry,floorMaterial(room));floor.name=room.name+' Boden';floor.receiveShadow=true;floor.position.y=-.005;g.add(floor);
