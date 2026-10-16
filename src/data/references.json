@@ -19,7 +19,8 @@
       "marking": "/references/moebel-image5.png",
       "originalDimensions": "160 × 96 × 50 cm",
       "assumptions": [
-        "Wickelaufsatz zusätzlich 12 cm hoch, geschätzt."
+        "Wickelaufsatz zusätzlich 12 cm hoch, geschätzt.",
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
       ]
     },
     {
@@ -29,7 +30,7 @@
       "originalDimensions": "209 × 196 × 38 cm",
       "assumptions": [
         "38 cm ist Rahmenhöhe. Kopfteil 90 cm und Matratze 18 cm geschätzt.",
-        "Exposé zeigt eine abweichende illustrative Bettausrichtung; Word-Markierung hat Vorrang."
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
       ]
     },
     {
@@ -38,7 +39,8 @@
       "marking": "/references/moebel-image7.png",
       "originalDimensions": "46 × 35 × 70 cm",
       "assumptions": [
-        "Lampenmaß aus Foto geschätzt."
+        "Lampenmaß aus Foto geschätzt.",
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
       ]
     },
     {
@@ -47,7 +49,8 @@
       "marking": "/references/moebel-image7.png",
       "originalDimensions": "46 × 35 × 70 cm",
       "assumptions": [
-        "Lampenmaß aus Foto geschätzt."
+        "Lampenmaß aus Foto geschätzt.",
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
       ]
     },
     {
@@ -78,14 +81,18 @@
       "photo": "/references/moebel-image12.jpeg",
       "marking": "/references/moebel-image13.png",
       "originalDimensions": "110 × 75 × 45 cm",
-      "assumptions": []
+      "assumptions": [
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
+      ]
     },
     {
       "id": "skruvby-side",
       "photo": "/references/moebel-image14.jpeg",
       "marking": "/references/moebel-image15.png",
       "originalDimensions": "120 × 38 × 90 cm",
-      "assumptions": []
+      "assumptions": [
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
+      ]
     },
     {
       "id": "skruvby-cab",
@@ -93,7 +100,8 @@
       "marking": "/references/moebel-image15.png",
       "originalDimensions": "90 × 70 × 38 cm",
       "assumptions": [
-        "Maßreihenfolge H × B × T anhand Bild normalisiert."
+        "Maßreihenfolge H × B × T anhand Bild normalisiert.",
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
       ]
     },
     {
@@ -101,7 +109,9 @@
       "photo": "/references/moebel-image16.jpeg",
       "marking": "/references/moebel-image17.png",
       "originalDimensions": "157 × 74 × 40 cm",
-      "assumptions": []
+      "assumptions": [
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
+      ]
     },
     {
       "id": "kallax",
@@ -109,7 +119,8 @@
       "marking": "/references/moebel-image19.png",
       "originalDimensions": "147 × 39 × 75 cm",
       "assumptions": [
-        "Auftraggeberkorrektur: senkrecht, 75 × 39 × 147 cm."
+        "Auftraggeberkorrektur: senkrecht, 75 × 39 × 147 cm.",
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
       ]
     },
     {
@@ -127,7 +138,8 @@
       "marking": "/references/moebel-image23.png",
       "originalDimensions": "88 × 79 × 46 cm",
       "assumptions": [
-        "B × H × T anhand Produktform; Liegefläche 50 cm geschätzt."
+        "B × H × T anhand Produktform; Liegefläche 50 cm geschätzt.",
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
       ]
     },
     {
@@ -136,7 +148,8 @@
       "marking": "/references/moebel-image25.png",
       "originalDimensions": "180 × 100 × 125 cm",
       "assumptions": [
-        "Auftraggeberkorrektur: Höhe 72 cm statt 125 cm."
+        "Auftraggeberkorrektur: Höhe 72 cm statt 125 cm.",
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
       ]
     },
     {
@@ -145,7 +158,8 @@
       "marking": "/references/moebel-image25.png",
       "originalDimensions": "94 × 46 × 50 cm",
       "assumptions": [
-        "H × B × T aus Foto; Sitzhöhe 46 cm geschätzt."
+        "H × B × T aus Foto; Sitzhöhe 46 cm geschätzt.",
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
       ]
     },
     {
@@ -154,7 +168,8 @@
       "marking": "/references/moebel-image25.png",
       "originalDimensions": "94 × 46 × 50 cm",
       "assumptions": [
-        "H × B × T aus Foto; Sitzhöhe 46 cm geschätzt."
+        "H × B × T aus Foto; Sitzhöhe 46 cm geschätzt.",
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
       ]
     },
     {
@@ -163,7 +178,8 @@
       "marking": "/references/moebel-image25.png",
       "originalDimensions": "94 × 46 × 50 cm",
       "assumptions": [
-        "H × B × T aus Foto; Sitzhöhe 46 cm geschätzt."
+        "H × B × T aus Foto; Sitzhöhe 46 cm geschätzt.",
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
       ]
     },
     {
@@ -172,7 +188,8 @@
       "marking": "/references/moebel-image25.png",
       "originalDimensions": "94 × 46 × 50 cm",
       "assumptions": [
-        "H × B × T aus Foto; Sitzhöhe 46 cm geschätzt."
+        "H × B × T aus Foto; Sitzhöhe 46 cm geschätzt.",
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
       ]
     },
     {
@@ -181,7 +198,8 @@
       "marking": "/references/moebel-image25.png",
       "originalDimensions": "94 × 46 × 50 cm",
       "assumptions": [
-        "H × B × T aus Foto; Sitzhöhe 46 cm geschätzt."
+        "H × B × T aus Foto; Sitzhöhe 46 cm geschätzt.",
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
       ]
     },
     {
@@ -190,7 +208,8 @@
       "marking": "/references/moebel-image25.png",
       "originalDimensions": "94 × 46 × 50 cm",
       "assumptions": [
-        "H × B × T aus Foto; Sitzhöhe 46 cm geschätzt."
+        "H × B × T aus Foto; Sitzhöhe 46 cm geschätzt.",
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
       ]
     },
     {
@@ -230,14 +249,18 @@
       "photo": "/references/moebel-image30.jpeg",
       "marking": "/references/moebel-image31.png",
       "originalDimensions": "60 × 86 × 65 cm",
-      "assumptions": []
+      "assumptions": [
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
+      ]
     },
     {
       "id": "washer",
       "photo": "/references/moebel-image30.jpeg",
       "marking": "/references/moebel-image32.png",
       "originalDimensions": "60 × 86 × 60 cm",
-      "assumptions": []
+      "assumptions": [
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
+      ]
     },
     {
       "id": "kitchen-0",

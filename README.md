@@ -119,3 +119,9 @@ npm run test:e2e
 ```
 
 Browserprüfungen benötigen Chromium. In dieser Cloud-Umgebung wird `/usr/bin/chromium` verwendet. Auf Windows: `npx playwright install chromium`; siehe Konfiguration (der gebündelte Browser wird verwendet, wenn kein Systempfad vorhanden ist). Optional `PLAYWRIGHT_CHROMIUM_EXECUTABLE` auf einen eigenen Browserpfad setzen. Tests prüfen Bearbeitung, Kameramodi, 2D-/3D-Ziehen, Persistenz, Im-/Exporte und Fehlerfreiheit. Tests und Bildprüfungen wurden mit Software-WebGL ausgeführt; dies ist kein FPS-Benchmark auf Consumer-Hardware.
+
+## Aktueller Originalzustand
+
+Die Möbelanordnung folgt dem zuletzt im Chat angehängten Grundriss. Neue Planungen starten damit; bestehende Browserplanungen werden erhalten. Über **Originalanordnung wiederherstellen → Wiederherstellen** wird die neue Vorlage geladen; Rückgängig stellt die vorherige Planung wieder her.
+
+Bett/Nachttische stehen östlich, der Schminktisch im Büro und die SKRUVBY-Möbel im Wohnzimmer. Essgruppe, Babybay, Kommode und Flurmöbel sind ebenfalls an die Vorlage angepasst. Die Bildableitung ist etwa ±3 cm genau; Möbelmaße und Gebäudegeometrie bleiben unverändert. `src/data/original-layout.json` hält die Anpassungen fest und wird bei `npm run data` berücksichtigt.

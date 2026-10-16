@@ -33,9 +33,9 @@
       "depth": 0.5,
       "height": 0.96,
       "position": [
-        5.57,
+        5.85,
         0,
-        3.96
+        3.95
       ],
       "rotation": 0,
       "visible": true,
@@ -46,7 +46,8 @@
       "method": "Parametrische Einzelgeometrien mit gruppiertem Zubehör",
       "provenance": "Möbel.docx",
       "assumptions": [
-        "Wickelaufsatz zusätzlich 12 cm hoch, geschätzt."
+        "Wickelaufsatz zusätzlich 12 cm hoch, geschätzt.",
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
       ]
     },
     {
@@ -58,9 +59,9 @@
       "depth": 2.09,
       "height": 0.38,
       "position": [
-        6.45,
+        7.09,
         0,
-        6.05
+        6
       ],
       "rotation": 270,
       "visible": true,
@@ -72,7 +73,7 @@
       "provenance": "Möbel.docx",
       "assumptions": [
         "38 cm ist Rahmenhöhe. Kopfteil 90 cm und Matratze 18 cm geschätzt.",
-        "Exposé zeigt eine abweichende illustrative Bettausrichtung; Word-Markierung hat Vorrang."
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
       ]
     },
     {
@@ -84,9 +85,9 @@
       "depth": 0.35,
       "height": 0.7,
       "position": [
-        7.26,
+        7.95,
         0,
-        4.77
+        4.78
       ],
       "rotation": 270,
       "visible": true,
@@ -97,7 +98,8 @@
       "method": "Parametrische Einzelgeometrien mit gruppiertem Zubehör",
       "provenance": "Möbel.docx",
       "assumptions": [
-        "Lampenmaß aus Foto geschätzt."
+        "Lampenmaß aus Foto geschätzt.",
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
       ]
     },
     {
@@ -109,9 +111,9 @@
       "depth": 0.35,
       "height": 0.7,
       "position": [
-        7.26,
+        7.95,
         0,
-        7.33
+        7.25
       ],
       "rotation": 270,
       "visible": true,
@@ -122,7 +124,8 @@
       "method": "Parametrische Einzelgeometrien mit gruppiertem Zubehör",
       "provenance": "Möbel.docx",
       "assumptions": [
-        "Lampenmaß aus Foto geschätzt."
+        "Lampenmaß aus Foto geschätzt.",
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
       ]
     },
     {
@@ -200,16 +203,16 @@
       "id": "vanity",
       "name": "Schminktisch",
       "kind": "vanity",
-      "room": "bedroom",
+      "room": "office",
       "width": 1.1,
       "depth": 0.45,
       "height": 0.75,
       "position": [
-        7.25,
+        11.03,
         0,
-        7.72
+        7
       ],
-      "rotation": 180,
+      "rotation": 270,
       "visible": true,
       "fixed": false,
       "originalDimensions": "110 × 75 × 45 cm",
@@ -217,22 +220,24 @@
       "placementReference": "/references/moebel-image13.png",
       "method": "Parametrische Einzelgeometrien mit gruppiertem Zubehör",
       "provenance": "Möbel.docx",
-      "assumptions": []
+      "assumptions": [
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
+      ]
     },
     {
       "id": "skruvby-side",
       "name": "SKRUVBY Sideboard",
       "kind": "sideboard",
-      "room": "kitchen",
+      "room": "living",
       "width": 1.2,
       "depth": 0.38,
       "height": 0.9,
       "position": [
-        1.64,
+        0.2,
         0,
-        0.24
+        5.75
       ],
-      "rotation": 0,
+      "rotation": 90,
       "visible": true,
       "fixed": false,
       "originalDimensions": "120 × 38 × 90 cm",
@@ -240,20 +245,22 @@
       "placementReference": "/references/moebel-image15.png",
       "method": "Parametrische Einzelgeometrien mit gruppiertem Zubehör",
       "provenance": "Möbel.docx",
-      "assumptions": []
+      "assumptions": [
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
+      ]
     },
     {
       "id": "skruvby-cab",
       "name": "SKRUVBY Schrank",
       "kind": "glasscabinet",
-      "room": "kitchen",
+      "room": "living",
       "width": 0.7,
       "depth": 0.38,
       "height": 0.9,
       "position": [
-        2.61,
+        2.8,
         0,
-        0.24
+        4.8
       ],
       "rotation": 0,
       "visible": true,
@@ -264,7 +271,8 @@
       "method": "Parametrische Einzelgeometrien mit gruppiertem Zubehör",
       "provenance": "Möbel.docx",
       "assumptions": [
-        "Maßreihenfolge H × B × T anhand Bild normalisiert."
+        "Maßreihenfolge H × B × T anhand Bild normalisiert.",
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
       ]
     },
     {
@@ -276,9 +284,9 @@
       "depth": 0.4,
       "height": 0.74,
       "position": [
-        5.33,
+        5.8,
         0,
-        3.18
+        3.19
       ],
       "rotation": 180,
       "visible": true,
@@ -288,7 +296,9 @@
       "placementReference": "/references/moebel-image17.png",
       "method": "Parametrische Einzelgeometrien mit gruppiertem Zubehör",
       "provenance": "Möbel.docx",
-      "assumptions": []
+      "assumptions": [
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
+      ]
     },
     {
       "id": "kallax",
@@ -299,7 +309,7 @@
       "depth": 0.39,
       "height": 1.47,
       "position": [
-        9.94,
+        9.65,
         0,
         3.16
       ],
@@ -312,7 +322,8 @@
       "method": "Parametrische Einzelgeometrien mit gruppiertem Zubehör",
       "provenance": "Möbel.docx",
       "assumptions": [
-        "Auftraggeberkorrektur: senkrecht, 75 × 39 × 147 cm."
+        "Auftraggeberkorrektur: senkrecht, 75 × 39 × 147 cm.",
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
       ]
     },
     {
@@ -349,9 +360,9 @@
       "depth": 0.46,
       "height": 0.79,
       "position": [
-        6.31,
+        6.9,
         0,
-        7.34
+        7.25
       ],
       "rotation": 0,
       "visible": true,
@@ -362,7 +373,8 @@
       "method": "Parametrische Einzelgeometrien mit gruppiertem Zubehör",
       "provenance": "Möbel.docx",
       "assumptions": [
-        "B × H × T anhand Produktform; Liegefläche 50 cm geschätzt."
+        "B × H × T anhand Produktform; Liegefläche 50 cm geschätzt.",
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
       ]
     },
     {
@@ -374,9 +386,9 @@
       "depth": 1,
       "height": 0.72,
       "position": [
-        1.59,
+        1.75,
         0,
-        1.4
+        1.05
       ],
       "rotation": 0,
       "visible": true,
@@ -387,7 +399,8 @@
       "method": "Parametrische Einzelgeometrien mit gruppiertem Zubehör",
       "provenance": "Möbel.docx",
       "assumptions": [
-        "Auftraggeberkorrektur: Höhe 72 cm statt 125 cm."
+        "Auftraggeberkorrektur: Höhe 72 cm statt 125 cm.",
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
       ]
     },
     {
@@ -399,9 +412,9 @@
       "depth": 0.5,
       "height": 0.94,
       "position": [
-        1.1,
+        1.45,
         0,
-        0.6
+        0.75
       ],
       "rotation": 0,
       "visible": true,
@@ -412,7 +425,8 @@
       "method": "Parametrische Einzelgeometrien mit gruppiertem Zubehör",
       "provenance": "Möbel.docx",
       "assumptions": [
-        "H × B × T aus Foto; Sitzhöhe 46 cm geschätzt."
+        "H × B × T aus Foto; Sitzhöhe 46 cm geschätzt.",
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
       ]
     },
     {
@@ -424,9 +438,9 @@
       "depth": 0.5,
       "height": 0.94,
       "position": [
-        2.05,
+        2.1,
         0,
-        0.6
+        0.75
       ],
       "rotation": 0,
       "visible": true,
@@ -437,7 +451,8 @@
       "method": "Parametrische Einzelgeometrien mit gruppiertem Zubehör",
       "provenance": "Möbel.docx",
       "assumptions": [
-        "H × B × T aus Foto; Sitzhöhe 46 cm geschätzt."
+        "H × B × T aus Foto; Sitzhöhe 46 cm geschätzt.",
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
       ]
     },
     {
@@ -449,9 +464,9 @@
       "depth": 0.5,
       "height": 0.94,
       "position": [
-        1.1,
+        1.4,
         0,
-        2.2
+        1.45
       ],
       "rotation": 180,
       "visible": true,
@@ -462,7 +477,8 @@
       "method": "Parametrische Einzelgeometrien mit gruppiertem Zubehör",
       "provenance": "Möbel.docx",
       "assumptions": [
-        "H × B × T aus Foto; Sitzhöhe 46 cm geschätzt."
+        "H × B × T aus Foto; Sitzhöhe 46 cm geschätzt.",
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
       ]
     },
     {
@@ -474,9 +490,9 @@
       "depth": 0.5,
       "height": 0.94,
       "position": [
-        2.05,
+        2.1,
         0,
-        2.2
+        1.4
       ],
       "rotation": 180,
       "visible": true,
@@ -487,7 +503,8 @@
       "method": "Parametrische Einzelgeometrien mit gruppiertem Zubehör",
       "provenance": "Möbel.docx",
       "assumptions": [
-        "H × B × T aus Foto; Sitzhöhe 46 cm geschätzt."
+        "H × B × T aus Foto; Sitzhöhe 46 cm geschätzt.",
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
       ]
     },
     {
@@ -499,9 +516,9 @@
       "depth": 0.5,
       "height": 0.94,
       "position": [
-        0.41,
+        0.9,
         0,
-        1.4
+        1
       ],
       "rotation": 90,
       "visible": true,
@@ -512,7 +529,8 @@
       "method": "Parametrische Einzelgeometrien mit gruppiertem Zubehör",
       "provenance": "Möbel.docx",
       "assumptions": [
-        "H × B × T aus Foto; Sitzhöhe 46 cm geschätzt."
+        "H × B × T aus Foto; Sitzhöhe 46 cm geschätzt.",
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
       ]
     },
     {
@@ -524,9 +542,9 @@
       "depth": 0.5,
       "height": 0.94,
       "position": [
-        2.77,
+        2.6,
         0,
-        1.4
+        1.05
       ],
       "rotation": 270,
       "visible": true,
@@ -537,7 +555,8 @@
       "method": "Parametrische Einzelgeometrien mit gruppiertem Zubehör",
       "provenance": "Möbel.docx",
       "assumptions": [
-        "H × B × T aus Foto; Sitzhöhe 46 cm geschätzt."
+        "H × B × T aus Foto; Sitzhöhe 46 cm geschätzt.",
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
       ]
     },
     {
@@ -645,11 +664,11 @@
       "depth": 0.65,
       "height": 0.86,
       "position": [
-        3.6,
+        3.64,
         0,
-        0.43
+        0.55
       ],
-      "rotation": 0,
+      "rotation": 270,
       "visible": true,
       "fixed": false,
       "originalDimensions": "60 × 86 × 65 cm",
@@ -657,7 +676,9 @@
       "placementReference": "/references/moebel-image31.png",
       "method": "Parametrische Einzelgeometrien mit gruppiertem Zubehör",
       "provenance": "Möbel.docx",
-      "assumptions": []
+      "assumptions": [
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
+      ]
     },
     {
       "id": "washer",
@@ -672,7 +693,7 @@
         0,
         0.35
       ],
-      "rotation": 0,
+      "rotation": 270,
       "visible": true,
       "fixed": false,
       "originalDimensions": "60 × 86 × 60 cm",
@@ -680,7 +701,9 @@
       "placementReference": "/references/moebel-image32.png",
       "method": "Parametrische Einzelgeometrien mit gruppiertem Zubehör",
       "provenance": "Möbel.docx",
-      "assumptions": []
+      "assumptions": [
+        "Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz."
+      ]
     },
     {
       "id": "kitchen-0",

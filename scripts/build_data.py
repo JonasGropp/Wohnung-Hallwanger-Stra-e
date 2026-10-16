@@ -78,8 +78,15 @@ for i,(r,x,z,w,h,rot,ref) in enumerate([('kitchen',.13,.72,.85,.65,90,'expose-01
  add(f'radiator-{i}',f'Heizkörper {i+1}','radiator',r,(w,.16,h),(x,z),rot,ref,ass=['Position aus Foto, Maße und Montagehöhe geschätzt.'],fixed=True,y=.16)
 add('balcony-table','Balkontisch · Vorschlag','roundtable','balcony',(.5,.5,.65),(8.15,8.75),ass=['Frei erfundener, entfernbarer Planungsvorschlag.'])
 for i,x in enumerate([7.4,8.9]):add(f'balcony-chair-{i}',f'Balkonstuhl {i+1} · Vorschlag','chair','balcony',(.45,.5,.85),(x,8.75),90 if i==0 else -90,ass=['Frei erfundener, entfernbarer Planungsvorschlag.'])
+# The user's latest floor plan supersedes the original Word placement markings.
+layout=json.loads((OUT/'original-layout.json').read_text())
+for item in items:
+ if item['id'] in layout['placements']:
+  item.update(layout['placements'][item['id']])
+  item['assumptions']=[a for a in item['assumptions'] if 'Word-Markierung hat Vorrang' not in a]
+  item['assumptions'].append('Ausgangsposition nach angehängtem Nutzergrundriss; aus Bild abgeleitet, ca. ±3 cm. Frühere Word-Markierung dient nur als historische Referenz.')
 save('furniture',items)
-save('placements',[dict(id=o['id'],room=o['room'],position=o['position'],rotation=o['rotation'],source=o['placementReference'],status='abgeleitet' if o['placementReference'] else 'geschätzt') for o in items])
+save('placements',[dict(id=o['id'],room=o['room'],position=o['position'],rotation=o['rotation'],source=layout['source'] if o['id'] in layout['placements'] else o['placementReference'],status='abgeleitet' if o['placementReference'] else 'geschätzt') for o in items])
 save('references',dict(originals=['source-files/Expose.pdf','source-files/Möbel.docx'],extraction='/references/extraction.json',floorplan='/references/expose-13-image-1.jpeg',furniture=[dict(id=o['id'],photo=o['reference'],marking=o['placementReference'],originalDimensions=o['originalDimensions'],assumptions=o['assumptions']) for o in items]))
 print('Scale:',s,'m/px; furniture:',len(items),'movable Word items:',sum(not o['fixed'] and o['room']!='balcony' for o in items))
 for r in rooms: print(r['name'],r['modelArea'],r['sourceArea'],r['deviationPercent'])

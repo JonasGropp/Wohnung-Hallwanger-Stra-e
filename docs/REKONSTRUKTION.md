@@ -45,25 +45,20 @@ Balkon und Treppenlandung sind vom Maßstabsfit ausgeschlossen. Die sichtbare sc
 1. Auftraggeberkorrektur: Esstisch 72 cm hoch; KALLAX 75 cm breit und 147 cm hoch.
 2. Word-Originalmaße bestimmen die unverzerrten Möbelabmessungen. Kommode 160 B × 50 T × 96 H; Schminktisch 110 B × 45 T × 75 H; HAUGA 70 B × 46 T × 199 H; Babybay 88 B × 46 T × 79 H; Stuhl 46 B × 50 T × 94 H. Die Originaltexte bleiben am Objekt.
 3. Bauliche Konturen aus Exposé; Fotos bestimmen sichtbaren Bestand und Material.
-4. Rote Markierungen bestimmen Aufstellungsbereiche, nicht Möbelgrößen. Positionen innerhalb dieser Bereiche sind Interpretationen.
+4. Der zuletzt im Chat angehängte Nutzergrundriss bestimmt den aktuellen Originalzustand. Die Anpassungen in `src/data/original-layout.json` überschreiben die früheren Word-Aufstellungsbereiche bei der Datenerzeugung. Bildpositionen sind mit etwa ±3 cm Genauigkeit abgeleitet; Möbelgrößen bleiben unverändert. Die Word-Markierungen bleiben als historische Referenz erhalten.
 5. Fehlende Maße werden als Annahmen gespeichert: Couchtisch Ø 70 cm / H 42 cm, Schreibtischhöhe 74 cm, Decke 250 cm. MALM 38 cm ist die Rahmenhöhe; Kopfteil 90 cm und Matratzenhöhe 18 cm sind gesonderte geometrische Annahmen. Lampen/Monitore/TV/Wickelauflage haben zusätzliche geschätzte Zubehörmaße.
 
 Fenster-/Türbreiten sind aus der Zeichnung abgeleitet, Brüstungen und Öffnungshöhen geschätzt. Anschläge werden schematisch aus dem Plan interpretiert, nicht als vermessen bestätigt. Außenwandstärken ca. 26 cm und Innenwandstärken ca. 13–23 cm ergeben sich aus der Strichbreite; tatsächliche Material-/Putzschichten sind unbekannt. Wandhöhe 2,50 m bleibt editierbar.
 
-## Verbleibende anfängliche Konflikte
+## Originalzustand nach Nutzergrundriss
 
-Die Ausgangspositionen enthalten sechs reproduzierbare Warnungen. Alle Möbel behalten ihre Quellenmaße. Die App verschiebt oder verkleinert nichts automatisch.
+Der Nutzergrundriss (613 × 517 Pixel) ersetzt die frühere Ausgangsanordnung. Bett und Nachttische liegen an der Ostseite des Schlafzimmers, die Kommode weiter östlich an der Nordwand und das Babybay südlich des Bettes. Der Schminktisch steht an der Ostwand im Büro. SKRUVBY-Sideboard und -Schrank stehen im Wohnzimmer (West- bzw. Nordwand). Die Essgruppe ist nach Norden zusammengerückt; Ablagetisch und KALLAX im Flur wurden ebenfalls verschoben. Unveränderte Positionen, alle Möbelmaße und die Gebäudegeometrie werden übernommen.
 
-| Beteiligte Objekte | Interpretation |
-|---|---|
-| HEMNES Nachttisch 2 / Schminktisch | Südöstlicher Schlafbereich; Zubehör/Bank und Stellflächen überschneiden sich. |
-| Schminktisch / Babybay | Enger Bereich am Fuß-/Seitenende des Bettes; Schminktischbank ist gruppiertes Zubehör. |
-| SKRUVBY Sideboard / Esszimmerstuhl 1 | Nordseitiger Stuhl steht im markierten Bereich vor der Schrankgruppe. |
-| SKRUVBY Sideboard / Esszimmerstuhl 2 | Wie oben; keine automatische Verkleinerung. |
-| SKRUVBY Schrank / Esszimmerstuhl 2 | Stuhlrücken und Schrankgruppe überschneiden sich. |
-| Esszimmerstuhl 3 / Küchenhalbinsel | Südlicher Bewegungs-/Stellbereich der Essgruppe wird durch den Bestand begrenzt. |
+Die Bildkoordinaten entsprechen näherungsweise einem Ursprung bei (16,5; 13,3) Pixel und 47,7 Pixel pro Meter. Die Positionen sind abgeleitet, kein Aufmaß. Das Bett steht mit einem Mittelpunkt von X = 7,09 m unmittelbar vor der östlichen Innenwand; dadurch wird eine allein durch Bildrundung verursachte Wanddurchdringung vermieden.
 
-Diese Konflikte sind Hinweise auf die gewählten Ausgangspositionen und angenommenen Bestandsmaße, kein Nachweis, dass eine passende reale Anordnung unmöglich ist. Die Grundflächenprüfung zeigt außerdem, wenn ein Möbel über die zugeordnete Raumkontur hinausreicht. Türschwenkbereiche, Sitz-/Bedienabstände und Fluchtwege sind nicht automatisch validiert.
+Neue Planungen und „Originalanordnung wiederherstellen“ verwenden diesen Stand. Gespeicherte Browserplanungen werden nicht automatisch überschrieben. Die Wiederherstellung kann rückgängig gemacht werden. `npm run data` berücksichtigt die Anpassungen erneut, damit sie bei einer späteren Datenerzeugung erhalten bleiben.
+
+Der neue Originalzustand zeigt 0 Platzkonflikte in der Bauteilprüfung. Platzkonflikte werden weiterhin anhand der vollständigen 3D-Bauteile angezeigt. Die Prüfung berücksichtigt auch die eng an den Tisch geschobenen Stühle. Möbel werden dafür nicht verkleinert. Türschwenkbereiche, Sitz-/Bedienabstände und Fluchtwege sind nicht automatisch validiert.
 
 Die Kollisionsprüfung arbeitet pro Bauteil, nicht nur mit einer einzigen Möbelhülle. Gedrehte Quader werden mit Separating Axis Theorem plus Höhenintervallen geprüft. Zylinder/Kugeln nutzen konservative umschließende Quader; dadurch sind kleine Fehlwarnungen an Rundungen möglich. Berührungen unter 3 mm werden toleriert. Zubehör innerhalb eines Möbelobjekts wird nicht gegeneinander geprüft. Zusammenhängende feste Einbauten sind als Bestand von gegenseitigen Konfliktwarnungen ausgenommen. Feste Einbauten gegen bewegliche Möbel und alle Wanddurchdringungen beweglicher Möbel werden geprüft.
 
@@ -81,9 +76,9 @@ Die folgende Liste verknüpft die Normalisierung mit dem extrahierten Referenzbi
 | billy-1 | BILLY / OXBERG 1 | living | 80 × 41 × 202 | /references/moebel-image8.jpeg |
 | billy-2 | BILLY / OXBERG 2 | living | 80 × 41 × 202 | /references/moebel-image8.jpeg |
 | besta | BESTÅ TV-Bank | living | 180 × 40 × 38 | /references/moebel-image10.jpeg |
-| vanity | Schminktisch | bedroom | 110 × 45 × 75 | /references/moebel-image12.jpeg |
-| skruvby-side | SKRUVBY Sideboard | kitchen | 120 × 38 × 90 | /references/moebel-image14.jpeg |
-| skruvby-cab | SKRUVBY Schrank | kitchen | 70 × 38 × 90 | /references/moebel-image14.jpeg |
+| vanity | Schminktisch | office | 110 × 45 × 75 | /references/moebel-image12.jpeg |
+| skruvby-side | SKRUVBY Sideboard | living | 120 × 38 × 90 | /references/moebel-image14.jpeg |
+| skruvby-cab | SKRUVBY Schrank | living | 70 × 38 × 90 | /references/moebel-image14.jpeg |
 | console | HEMNES Ablagetisch | hall | 157 × 40 × 74 | /references/moebel-image16.jpeg |
 | kallax | KALLAX Regal | hall | 75 × 39 × 147 | /references/moebel-image18.jpeg |
 | hauga | HAUGA Kleiderschrank | hall | 70 × 46 × 199 | /references/moebel-image20.png |

@@ -1,0 +1,178 @@
+{
+  "name": "Originalzustand nach Nutzergrundriss",
+  "source": "Im Chat angehängter Grundriss, 613 × 517 Pixel",
+  "method": "Positionen visuell aus der Nutzervorlage abgeleitet (ca. 16,5 / 13,3 Pixel als Ursprung; 47,7 Pixel pro Meter). Genauigkeit etwa ±3 cm. Möbelmaße, bauliche Geometrie und nicht abweichende Positionen bleiben erhalten. Bett bis an die Ostwand, ohne Wanddurchdringung.",
+  "placements": {
+    "dresser": {
+      "room": "bedroom",
+      "position": [
+        5.85,
+        0,
+        3.95
+      ],
+      "rotation": 0
+    },
+    "bed": {
+      "room": "bedroom",
+      "position": [
+        7.09,
+        0,
+        6
+      ],
+      "rotation": -90
+    },
+    "bedside-1": {
+      "room": "bedroom",
+      "position": [
+        7.95,
+        0,
+        4.78
+      ],
+      "rotation": -90
+    },
+    "bedside-2": {
+      "room": "bedroom",
+      "position": [
+        7.95,
+        0,
+        7.25
+      ],
+      "rotation": -90
+    },
+    "vanity": {
+      "room": "office",
+      "position": [
+        11.03,
+        0,
+        7
+      ],
+      "rotation": -90
+    },
+    "skruvby-side": {
+      "room": "living",
+      "position": [
+        0.2,
+        0,
+        5.75
+      ],
+      "rotation": 90
+    },
+    "skruvby-cab": {
+      "room": "living",
+      "position": [
+        2.8,
+        0,
+        4.8
+      ],
+      "rotation": 0
+    },
+    "console": {
+      "room": "hall",
+      "position": [
+        5.8,
+        0,
+        3.19
+      ],
+      "rotation": 180
+    },
+    "kallax": {
+      "room": "hall",
+      "position": [
+        9.65,
+        0,
+        3.16
+      ],
+      "rotation": 180
+    },
+    "babybay": {
+      "room": "bedroom",
+      "position": [
+        6.9,
+        0,
+        7.25
+      ],
+      "rotation": 0
+    },
+    "dining": {
+      "room": "kitchen",
+      "position": [
+        1.75,
+        0,
+        1.05
+      ],
+      "rotation": 0
+    },
+    "chair-1": {
+      "room": "kitchen",
+      "position": [
+        1.45,
+        0,
+        0.75
+      ],
+      "rotation": 0
+    },
+    "chair-2": {
+      "room": "kitchen",
+      "position": [
+        2.1,
+        0,
+        0.75
+      ],
+      "rotation": 0
+    },
+    "chair-3": {
+      "room": "kitchen",
+      "position": [
+        1.4,
+        0,
+        1.45
+      ],
+      "rotation": 180
+    },
+    "chair-4": {
+      "room": "kitchen",
+      "position": [
+        2.1,
+        0,
+        1.4
+      ],
+      "rotation": 180
+    },
+    "chair-5": {
+      "room": "kitchen",
+      "position": [
+        0.9,
+        0,
+        1
+      ],
+      "rotation": 90
+    },
+    "chair-6": {
+      "room": "kitchen",
+      "position": [
+        2.6,
+        0,
+        1.05
+      ],
+      "rotation": -90
+    },
+    "dryer": {
+      "room": "kitchen",
+      "position": [
+        3.64,
+        0,
+        0.55
+      ],
+      "rotation": -90
+    },
+    "washer": {
+      "room": "bath",
+      "position": [
+        6.02,
+        0,
+        0.35
+      ],
+      "rotation": -90
+    }
+  }
+}
