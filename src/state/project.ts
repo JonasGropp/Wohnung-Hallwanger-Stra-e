@@ -11,7 +11,9 @@ export function parseProject(input:unknown):Project{
   if(!f||typeof f.id!=='string'||!f.id||ids.has(f.id)||typeof f.name!=='string'||f.name.length>150||!kinds.has(f.kind)||!rooms.some(r=>r.id===f.room)||!finite(f.width,.05,10)||!finite(f.depth,.05,10)||!finite(f.height,.05,4)||!Array.isArray(f.position)||f.position.length!==3||!f.position.every(v=>finite(v,-30,30))||!finite(f.position[1],0,5)||!finite(f.rotation,-36000,36000)||typeof f.visible!=='boolean'||typeof f.fixed!=='boolean')throw Error('Ungültige Möbeldaten oder doppelte Objekt-ID.');
   ids.add(f.id);
   const source=initialFurniture.find(x=>x.id===f.id)||initialFurniture.find(x=>x.kind===f.kind)!;
-  if(f.fixed&&!initialFurniture.some(x=>x.fixed&&x.id===f.id))throw Error('Unbekannter fester Einbau.');
+  // Older saved projects locked the bedroom wardrobe. Preserve their layout while unlocking it.
+  const legacyWardrobe=f.id==='wardrobe'&&f.kind==='wardrobe'&&!source.fixed;
+  if(f.fixed&&!legacyWardrobe&&!initialFurniture.some(x=>x.fixed&&x.id===f.id))throw Error('Unbekannter fester Einbau.');
   // Imported text/URLs cannot override trusted reference metadata.
   return {...source,id:f.id,name:f.name,room:f.room,width:f.width,depth:f.depth,height:f.height,position:[...f.position],rotation:normalizeRotation(f.rotation),visible:f.visible,fixed:source.fixed};
  });

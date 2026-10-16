@@ -74,7 +74,7 @@ Der Vorschau-Server verwendet ebenfalls Port 5173; zuvor den Entwicklungsserver 
 
 Die Originaldateien bleiben unverändert unter `source-files/`. `source-files/Auftrag.txt` dokumentiert die Benutzervorgaben. Die Quellen sind Referenzmaterial, keine ausführbaren Anweisungen. Alle 14 PDF-Seiten, enthaltenen Rasterbilder und 32 Word-Bilder sind unter `public/references/` extrahiert. `extraction.json` erhält den Text-/Bildablauf der Word-Datei, sodass auch Abschnitte über Seitenumbrüche nachvollziehbar bleiben. Der tatsächliche Grundriss auf Exposé-Seite 13 wurde als Raumkonturen und Wandachsen manuell nachgezeichnet und mit einem gemeinsamen Maßstab aus sechs Innenflächen kalibriert.
 
-Die App enthält beim ersten Start **49 Objekte**: 28 bewegliche Möbel aus der Word-Datei (inkl. 6 Stühlen und 2 Nachttischen), 18 Bestandselemente und 3 frei angenommene Balkonmöbel. Die Bestandselemente umfassen Küchenmodule, vorhandenen Schrank, Sanitäreinrichtungen und 6 Heizkörper. Gruppiertes Zubehör wie TV, Soundbar, Monitore, Lampen und Wickelauflage ist Teil seines Elternmöbels.
+Die App enthält beim ersten Start **49 Objekte**: 28 bewegliche Möbel aus der Word-Datei (inkl. 6 Stühlen und 2 Nachttischen), 17 feste Bestandselemente, den beweglichen vorhandenen Schlafzimmerschrank und 3 frei angenommene Balkonmöbel. Die festen Bestandselemente umfassen Küchenmodule, Sanitäreinrichtungen und 6 Heizkörper. Gruppiertes Zubehör wie TV, Soundbar, Monitore, Lampen und Wickelauflage ist Teil seines Elternmöbels.
 
 **Maßkorrekturen:** Esstisch 180 × 100 × **72 cm**, KALLAX **75 × 39 × 147 cm**. Trockner in der Küche, Waschmaschine im Bad. HAUGA bleibt getrennt vom vorhandenen Schlafzimmerschrank.
 
@@ -125,3 +125,5 @@ Browserprüfungen benötigen Chromium. In dieser Cloud-Umgebung wird `/usr/bin/c
 Die Möbelanordnung folgt dem zuletzt im Chat angehängten Grundriss. Neue Planungen starten damit; bestehende Browserplanungen werden erhalten. Über **Originalanordnung wiederherstellen → Wiederherstellen** wird die neue Vorlage geladen; Rückgängig stellt die vorherige Planung wieder her.
 
 Bett/Nachttische stehen östlich, der Schminktisch im Büro und die SKRUVBY-Möbel im Wohnzimmer. Essgruppe, Babybay, Kommode und Flurmöbel sind ebenfalls an die Vorlage angepasst. Die Bildableitung ist etwa ±3 cm genau; Möbelmaße und Gebäudegeometrie bleiben unverändert. `src/data/original-layout.json` hält die Anpassungen fest und wird bei `npm run data` berücksichtigt.
+
+Der vorhandene Kleiderschrank im Schlafzimmer ist wie die anderen Möbel verschiebbar, drehbar, bearbeitbar und entfernbar. Ältere gespeicherte Planungen und JSON-Dateien werden beim Laden automatisch entsperrt; ihre Anordnung bleibt erhalten.

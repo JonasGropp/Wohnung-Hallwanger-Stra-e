@@ -9,7 +9,7 @@ Node.js 24.19.0, npm 11.9.0, Linux, Chromium mit Software-WebGL. Keine externen 
 | Prüfung | Ergebnis |
 |---|---|
 | Erneute Installation `npm ci --include=dev --no-audit --no-fund` | Erfolgreich, 193 Pakete |
-| `npm test` | 17 Tests bestanden, keine ausgelassen |
+| `npm test` | 19 Tests bestanden, keine ausgelassen |
 | `npm run build` | TypeScript und Produktionsbuild erfolgreich |
 | `npm run test:e2e` | 7 Browserabläufe bestanden (einschließlich gezielter Wiederholungen), keine ausgelassen |
 | Produktionsvorschau `npm run preview` | Funktionaler Browserlauf mit vier Ansichten bestanden |
@@ -39,3 +39,9 @@ Beim GLB werden Grundgeometrien wiederverwendet; deshalb gibt es weniger eindeut
 19 Möbelpositionen bzw. Ausrichtungen wurden nach dem Nutzerbild übernommen. Browserprüfung bestätigt den neuen Zustand beim Reset, Erhalt eigener gespeicherter Änderungen nach Reload und Wiederherstellung der vorherigen Planung per Undo. Der zusätzliche Produktionstest prüft Ressourcen und GLB-Export unter dem GitHub-Pages-Unterpfad. Die letzte gezielte Wiederholung von Reset/Persistenz, 3D-Ziehen/Rundgang und Pages-Test bestand vollständig (3/3); die übrigen vier Browserabläufe waren bereits erfolgreich.
 
 Ein instabiler zugänglicher Buttonname bei Kollisionswarnungen wurde korrigiert: Möbel-Buttons behalten ihren Namen unabhängig vom Warnsymbol. Der abschließende Build ist erfolgreich. Die Beispielexporte, Ansichten und das geprüfte Offline-ZIP enthalten die neue Anordnung.
+
+## Nachprüfung: beweglicher Schlafzimmerschrank
+
+Der vorhandene Kleiderschrank ist jetzt beweglich. Die Herkunft bleibt „Bestand“. Bestehende Browserplanungen und ältere JSON-Dateien mit `fixed: true` werden gezielt für diesen Schrank entsperrt; Positionen, Kalibrierung und die übrigen Möbel bleiben erhalten. Andere Einbauten bleiben geschützt.
+
+19 Fachtests und drei gezielte Browserabläufe bestanden: Migration eines alten Speicherstands mit geänderter Bettposition, Schrank per Maus verschieben, drehen, nach Reload erhalten, entfernen, rückgängig machen und Originalzustand wiederherstellen; außerdem Bestandsschutz/Kalibrierung und Produktionsbetrieb unter dem GitHub-Pages-Pfad mit GLB-Export. TypeScript und Produktionsbuild erfolgreich. Offline-Paket und JSON-Beispiel sind aktualisiert.

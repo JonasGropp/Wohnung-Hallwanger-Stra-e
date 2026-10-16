@@ -6,9 +6,9 @@ import {furnitureParts} from '../src/geometry/models';
 import type {Solid} from '../src/types';
 const solid=(x=0,z=0,angle=0,y=.5):Solid=>({id:'a',name:'a',center:[x,y,z],size:[2,1,1],angle});
 describe('Metrisches Quellenmodell',()=>{
- it('enthält alle 28 Möbel aus Word und genau sechs Esszimmerstühle',()=>{expect(initialFurniture.filter(f=>!f.fixed&&f.room!=='balcony')).toHaveLength(28);expect(initialFurniture.filter(f=>/^chair-/.test(f.id))).toHaveLength(6);expect(new Set(initialFurniture.map(f=>f.id)).size).toBe(initialFurniture.length)});
+ it('enthält alle 28 Möbel aus Word und genau sechs Esszimmerstühle',()=>{expect(initialFurniture.filter(f=>f.provenance==='Möbel.docx')).toHaveLength(28);expect(initialFurniture.filter(f=>/^chair-/.test(f.id))).toHaveLength(6);expect(new Set(initialFurniture.map(f=>f.id)).size).toBe(initialFurniture.length)});
  it('normalisiert Maße und berücksichtigt explizite Korrekturen',()=>{const by=(id:string)=>initialFurniture.find(f=>f.id===id)!;expect(by('dining').height).toBe(.72);expect([by('kallax').width,by('kallax').depth,by('kallax').height]).toEqual([.75,.39,1.47]);expect(by('hauga').height).toBe(1.99);expect(by('dresser').depth).toBe(.5);expect(by('dryer').room).toBe('kitchen');expect(by('washer').room).toBe('bath')});
- it('verknüpft jedes Word-Möbel mit Foto und richtiger Positionsmarkierung',()=>{for(const f of initialFurniture.filter(f=>!f.fixed&&f.room!=='balcony')){expect(f.reference).toMatch(/^\/references\/moebel/);expect(f.placementReference).toMatch(/\.png$/)}expect(initialFurniture.find(f=>f.id==='desk')?.placementReference).toContain('image29');expect(initialFurniture.find(f=>f.id==='sofa-1')?.placementReference).toContain('image27')});
+ it('verknüpft jedes Word-Möbel mit Foto und richtiger Positionsmarkierung',()=>{for(const f of initialFurniture.filter(f=>f.provenance==='Möbel.docx')){expect(f.reference).toMatch(/^\/references\/moebel/);expect(f.placementReference).toMatch(/\.png$/)}expect(initialFurniture.find(f=>f.id==='desk')?.placementReference).toContain('image29');expect(initialFurniture.find(f=>f.id==='sofa-1')?.placementReference).toContain('image27')});
  it('hat acht echte Raumkonturen, sechs Innenflächen nahe am Plan und drei Balkonzugänge',()=>{expect(rooms).toHaveLength(8);for(const r of rooms.slice(0,6)){expect(Math.abs(polygonArea(r.polygon)/r.sourceArea-1)).toBeLessThan(.025)}expect(apartment.walls.flatMap(w=>w.openings).filter(o=>o.kind==='balconyDoor')).toHaveLength(3)});
  it('platziert Möbelmittelpunkte im vorgesehenen Raum',()=>{for(const f of initialFurniture){const r=rooms.find(r=>r.id===f.room)!;expect(contains([f.position[0],f.position[2]],r.polygon),f.id).toBe(true)}});
  it('erzeugt für jedes Möbel räumliche Bauteile mit plausiblen Größen',()=>{for(const f of initialFurniture){const parts=furnitureParts(f);expect(parts.length,f.name).toBeGreaterThan(1);for(const p of parts){expect(p.size.every(v=>Number.isFinite(v)&&v>0&&v<12)).toBe(true);expect(p.position.every(Number.isFinite)).toBe(true)}}});
@@ -26,4 +26,23 @@ describe('Projektimport und Sicherheit der Daten',()=>{
  it('weist defekte, doppelte und nicht endliche Daten zurück',()=>{const p=initialProject();p.furniture.push(p.furniture[0]);expect(()=>parseProject(p)).toThrow();const n=initialProject();n.furniture[0].position[0]=NaN;expect(()=>parseProject(n)).toThrow();expect(()=>parseProject({version:8})).toThrow()});
  it('schützt Einbauten vor Entfernen, Positions- und Größenänderungen',()=>{for(const action of ['remove','resize','move']){const p=initialProject();const f=p.furniture.find(f=>f.fixed)!;if(action==='remove')p.furniture=p.furniture.filter(x=>x!==f);if(action==='resize')f.width*=2;if(action==='move')f.position[0]+=1;expect(()=>parseProject(p)).toThrow()}});
  it('erlaubt kalibrierte Positionen bei unveränderten Möbelabmessungen',()=>{const p=initialProject();p.calibration=1.1;p.furniture.forEach(f=>{f.position[0]*=1.1;f.position[2]*=1.1});expect(parseProject(p).calibration).toBe(1.1)});
+});
+
+describe('Beweglicher Schlafzimmerschrank',()=>{
+ it('übernimmt alte gespeicherte Planungen ohne Positionsverlust und entsperrt nur den Schrank',()=>{
+  const old=initialProject();old.furniture.find(f=>f.id==='wardrobe')!.fixed=true;
+  old.furniture.find(f=>f.id==='bed')!.position=[6.8,0,6];old.calibration=1.1;
+  old.furniture.forEach(f=>{f.position[0]*=1.1;f.position[2]*=1.1});
+  const loaded=parseProject(old);
+  expect(loaded.furniture.find(f=>f.id==='wardrobe')).toMatchObject({fixed:false,position:old.furniture.find(f=>f.id==='wardrobe')!.position});
+  expect(loaded.furniture.find(f=>f.id==='bed')!.position).toEqual(old.furniture.find(f=>f.id==='bed')!.position);
+  expect(loaded.furniture.filter(f=>f.fixed)).toHaveLength(17);
+ });
+ it('speichert Verschieben, Drehen und Entfernen des Schranks; unbekannte Einbauten bleiben abgewiesen',()=>{
+  const p=initialProject(),ward=p.furniture.find(f=>f.id==='wardrobe')!;
+  ward.position=[6,0,5];ward.rotation=180;
+  expect(parseProject(JSON.parse(serializeProject(p))).furniture.find(f=>f.id==='wardrobe')).toMatchObject({position:[6,0,5],rotation:180,fixed:false});
+  p.furniture=p.furniture.filter(f=>f.id!=='wardrobe');expect(parseProject(p).furniture.some(f=>f.id==='wardrobe')).toBe(false);
+  p.furniture[0].fixed=true;expect(()=>parseProject(p)).toThrow('Unbekannter fester Einbau');
+ });
 });

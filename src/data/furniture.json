@@ -918,7 +918,7 @@
     ],
     "rotation": 90,
     "visible": true,
-    "fixed": true,
+    "fixed": false,
     "originalDimensions": "Keine Bemaßung in Quelle",
     "reference": "/references/expose-08-image-1.jpeg",
     "placementReference": null,

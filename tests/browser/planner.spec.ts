@@ -32,7 +32,7 @@ test('Möbel in 2D ziehen, Kollision anzeigen, hinzufügen und entfernen',async(
 });
 test('Kalibrierung skaliert Räume und Positionen, nicht Möbel; feste Einbauten sind geschützt',async({page})=>{
  await page.goto('/');await selectBed(page);const width=await page.getByRole('spinbutton',{name:'Breite',exact:true}).inputValue();await page.getByRole('button',{name:'Darstellung und Kalibrierung'}).click();await edit(page,'Gemessene Länge A–B','5');await page.getByRole('button',{name:'Kalibrierung anwenden'}).click();await expect(page.getByRole('spinbutton',{name:'Breite',exact:true})).toHaveValue(width);await expect(page.getByRole('spinbutton',{name:'X · Ost'})).not.toHaveValue('7.09');
- await page.getByRole('textbox',{name:'Möbel suchen'}).fill('Vorhandener');await page.getByRole('button',{name:'Vorhandener Kleiderschrank',exact:true}).click();await expect(page.getByRole('spinbutton',{name:'Breite',exact:true})).toBeDisabled();await expect(page.getByRole('spinbutton',{name:'X · Ost'})).toBeDisabled();await expect(page.getByRole('button',{name:'Aus Planung entfernen'})).toHaveCount(0);
+ await page.getByRole('textbox',{name:'Möbel suchen'}).fill('Spülenzeile');await page.getByRole('button',{name:'Spülenzeile',exact:true}).click();await expect(page.getByRole('spinbutton',{name:'Breite',exact:true})).toBeDisabled();await expect(page.getByRole('spinbutton',{name:'X · Ost'})).toBeDisabled();await expect(page.getByRole('button',{name:'Aus Planung entfernen'})).toHaveCount(0);
 });
 test('PNG, PDF, GLB und JSON exportieren gültige Dateien; JSON lässt sich importieren',async({page})=>{
  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await page.goto('/');await page.waitForTimeout(2000);

@@ -62,6 +62,8 @@ Der neue Originalzustand zeigt 0 Platzkonflikte in der Bauteilprüfung. Platzkon
 
 Die Kollisionsprüfung arbeitet pro Bauteil, nicht nur mit einer einzigen Möbelhülle. Gedrehte Quader werden mit Separating Axis Theorem plus Höhenintervallen geprüft. Zylinder/Kugeln nutzen konservative umschließende Quader; dadurch sind kleine Fehlwarnungen an Rundungen möglich. Berührungen unter 3 mm werden toleriert. Zubehör innerhalb eines Möbelobjekts wird nicht gegeneinander geprüft. Zusammenhängende feste Einbauten sind als Bestand von gegenseitigen Konfliktwarnungen ausgenommen. Feste Einbauten gegen bewegliche Möbel und alle Wanddurchdringungen beweglicher Möbel werden geprüft.
 
+Der vorhandene Schlafzimmerschrank bleibt seiner Herkunft nach Bestand, ist im Planer jedoch ein bewegliches Möbel. Er kann verschoben, gedreht, bearbeitet, kopiert und entfernt werden. Alte Speicherstände werden beim Laden ohne Verlust der übrigen Planung entsperrt.
+
 ## Vollständiges Inventar
 
 Die folgende Liste verknüpft die Normalisierung mit dem extrahierten Referenzbild. Alle Objekte sind separat auswählbar; kontrolliertes Zubehör gehört zum jeweiligen Objekt.
